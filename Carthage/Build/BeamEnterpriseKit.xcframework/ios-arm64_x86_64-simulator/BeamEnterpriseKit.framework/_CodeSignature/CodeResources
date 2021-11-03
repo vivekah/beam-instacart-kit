@@ -6,7 +6,7 @@
 	<dict>
 		<key>Assets.car</key>
 		<data>
-		w5e5cudTOjnYuIT+LvZZvGiJOSs=
+		dellZo9x3tLyg0CnvjP08Qdz2y4=
 		</data>
 		<key>Headers/BeamEnterpriseKit-Swift.h</key>
 		<data>
@@ -18,23 +18,23 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		3Hy5X7QQv63MnAUFYCUSLtJf8N8=
+		0uS9ym89uWd7IMt5siNoYql9WEc=
 		</data>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/Project/arm64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		55ygZsI3Ztte4DRBoRXdyakCKmE=
+		k4sEAJQt5AO2pIPjXRb5gXwCUu4=
 		</data>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<data>
-		55ygZsI3Ztte4DRBoRXdyakCKmE=
+		k4sEAJQt5AO2pIPjXRb5gXwCUu4=
 		</data>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<data>
-		EcqRy44XQrp/oDBJ8YshyVNVGv8=
+		/ywJMxl8nbovpZ1BjWbIH7ek+EY=
 		</data>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<data>
-		EcqRy44XQrp/oDBJ8YshyVNVGv8=
+		/ywJMxl8nbovpZ1BjWbIH7ek+EY=
 		</data>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -42,11 +42,11 @@
 		</data>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/arm64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		ncwtI6TXA9l4mwKGMDAMeyme14o=
+		x2BQzXwuynV3qdSPq1rhJ1KJTIk=
 		</data>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		mzcsDhxqdUz9+9ixSJzeno/dTT0=
+		M9HAKylpKYfiK592vU0kCphw9f0=
 		</data>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/arm64.swiftdoc</key>
 		<data>
@@ -54,11 +54,11 @@
 		</data>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/arm64.swiftinterface</key>
 		<data>
-		ncwtI6TXA9l4mwKGMDAMeyme14o=
+		x2BQzXwuynV3qdSPq1rhJ1KJTIk=
 		</data>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		mzcsDhxqdUz9+9ixSJzeno/dTT0=
+		M9HAKylpKYfiK592vU0kCphw9f0=
 		</data>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
 		<data>
@@ -66,11 +66,11 @@
 		</data>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/x86_64-apple-ios-simulator.swiftinterface</key>
 		<data>
-		gahGbW6tkYIe7grLs8cl8bNrkJ8=
+		iEt4G9IxAx190iDTCNkf/fra+NM=
 		</data>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<data>
-		ZYHxnZq2+iqtdBLypzOS2rntQNo=
+		Aucc9pl8Q04hIJT+5kROT916jVE=
 		</data>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/x86_64.swiftdoc</key>
 		<data>
@@ -78,11 +78,11 @@
 		</data>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/x86_64.swiftinterface</key>
 		<data>
-		gahGbW6tkYIe7grLs8cl8bNrkJ8=
+		iEt4G9IxAx190iDTCNkf/fra+NM=
 		</data>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/x86_64.swiftmodule</key>
 		<data>
-		ZYHxnZq2+iqtdBLypzOS2rntQNo=
+		Aucc9pl8Q04hIJT+5kROT916jVE=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -107,7 +107,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			B4fRghjOp8QnCqXA4TiboS7idqefmP83TRqk0J/znGU=
+			4WwYR3XUpTcqhWLYtDWZxcb19Uuy9AvC3G6UCgWx/J0=
 			</data>
 		</dict>
 		<key>Headers/BeamEnterpriseKit-Swift.h</key>
@@ -128,28 +128,28 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			jBE4sGFAjbSfAAP8WfyBsgKV8N8MVvMffOO8t7oXhRo=
+			pBy2ne9fr3cB+sCWlK1DIFIIv4TVit7zYtjwWGeLgVs=
 			</data>
 		</dict>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/Project/arm64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			jBE4sGFAjbSfAAP8WfyBsgKV8N8MVvMffOO8t7oXhRo=
+			pBy2ne9fr3cB+sCWlK1DIFIIv4TVit7zYtjwWGeLgVs=
 			</data>
 		</dict>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/Project/x86_64-apple-ios-simulator.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VVtwkjrgsvGsZgwWlCX0gD89Vme1mv3urjFTJHfduEA=
+			WprkIsjPUJgbL7fP1p01cNMVyG7idYgL74rasIo7JtE=
 			</data>
 		</dict>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/Project/x86_64.swiftsourceinfo</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			VVtwkjrgsvGsZgwWlCX0gD89Vme1mv3urjFTJHfduEA=
+			WprkIsjPUJgbL7fP1p01cNMVyG7idYgL74rasIo7JtE=
 			</data>
 		</dict>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/arm64-apple-ios-simulator.swiftdoc</key>
@@ -163,14 +163,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5tEeMWXeCP8pb61Il5Mi91xnqtfYqC4+I5W4Bo7TdOQ=
+			2jU8ILmyLkxTWtNOhn+zMCEfSpgZsUmf0921kq/Ocbg=
 			</data>
 		</dict>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/arm64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ehacpmkYRXy0HmtiJfqQxcammqCuX3W7fXpxmdNK338=
+			P+XXMuvmuYVD7YXQylNLXJojEOKil/ZYYw2AR80tL1E=
 			</data>
 		</dict>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/arm64.swiftdoc</key>
@@ -184,14 +184,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			5tEeMWXeCP8pb61Il5Mi91xnqtfYqC4+I5W4Bo7TdOQ=
+			2jU8ILmyLkxTWtNOhn+zMCEfSpgZsUmf0921kq/Ocbg=
 			</data>
 		</dict>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			ehacpmkYRXy0HmtiJfqQxcammqCuX3W7fXpxmdNK338=
+			P+XXMuvmuYVD7YXQylNLXJojEOKil/ZYYw2AR80tL1E=
 			</data>
 		</dict>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/x86_64-apple-ios-simulator.swiftdoc</key>
@@ -205,14 +205,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3p4iiNdUz5FzeVLCAJg4GKeuvpdQ0+0w2uhieVDCOvY=
+			8NXjx8CodFdwvdiFQt0FP9xhNMTxuv0YVbGxO8S8qn4=
 			</data>
 		</dict>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/x86_64-apple-ios-simulator.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mJpfqmmA7sl3SSswRmyED87NYWVXIIUJjIPPhJstgWk=
+			1/AHkQF2aN4SdHyIeUC9B8zukibtaxqYW9pssdCEYbw=
 			</data>
 		</dict>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/x86_64.swiftdoc</key>
@@ -226,14 +226,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			3p4iiNdUz5FzeVLCAJg4GKeuvpdQ0+0w2uhieVDCOvY=
+			8NXjx8CodFdwvdiFQt0FP9xhNMTxuv0YVbGxO8S8qn4=
 			</data>
 		</dict>
 		<key>Modules/BeamEnterpriseKit.swiftmodule/x86_64.swiftmodule</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			mJpfqmmA7sl3SSswRmyED87NYWVXIIUJjIPPhJstgWk=
+			1/AHkQF2aN4SdHyIeUC9B8zukibtaxqYW9pssdCEYbw=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

@@ -349,8 +349,6 @@ extension BKManager {
   public func beginTransaction(at storeID: Swift.String, spend: CoreGraphics.CGFloat, forceMatchView: Swift.Bool = false, email: Swift.String? = nil, _ completion: ((BeamEnterpriseKit.BKChooseNonprofitViewType?, BeamEnterpriseKit.BeamError) -> Swift.Void)? = nil)
   public func prepareSelection(at zip: Swift.String, user: Swift.String? = nil, _ completion: ((BeamEnterpriseKit.BeamError) -> Swift.Void)? = nil)
   public func completeCurrentTransaction(_ completion: ((Swift.Int?, BeamEnterpriseKit.BeamError) -> Swift.Void)? = nil)
-  public func register(_ completion: ((BeamEnterpriseKit.BeamError) -> Swift.Void)? = nil)
-  public func webRegister(_ completion: ((BeamEnterpriseKit.BeamError) -> Swift.Void)? = nil)
   public func cancelTransaction(id: Swift.Int, _ completion: ((BeamEnterpriseKit.BeamError) -> Swift.Void)? = nil)
 }
 public protocol BKChooseNonprofitViewDelegate : AnyObject {
