@@ -1,0 +1,11 @@
+framework module BeamEnterpriseKit {
+  umbrella header "BeamEnterpriseKit.h"
+
+  export *
+  module * { export * }
+}
+
+module BeamEnterpriseKit.Swift {
+    header "BeamEnterpriseKit-Swift.h"
+    requires objc
+}

@@ -1,0 +1,469 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)
+// swift-module-flags: -target x86_64-apple-ios12.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -O -module-name BeamEnterpriseKit
+@_exported import BeamEnterpriseKit
+import Foundation
+import Swift
+import UIKit
+extension UIFont {
+  public class func _bkLoadAllFonts()
+  public class func load(fontName: Swift.String, in bundle: Foundation.Bundle)
+}
+@objc public protocol AFImageCacheProtocol : AnyObject {
+  @objc func cachedImageForRequest(_ request: Foundation.URLRequest) -> UIKit.UIImage?
+  @objc func cacheImage(_ image: UIKit.UIImage, forRequest request: Foundation.URLRequest)
+}
+extension UIImageView {
+  public class func setSharedImageCache(_ cache: BeamEnterpriseKit.AFImageCacheProtocol?)
+  public class func BKSharedImageCache() -> BeamEnterpriseKit.AFImageCacheProtocol
+  public func bkSetImageWithUrl(_ url: Foundation.URL, placeHolderImage: UIKit.UIImage? = nil, priority: Foundation.Operation.QueuePriority = .normal)
+  public func bkSetImageWithUrl(_ url: Foundation.URL, placeHolderImage: UIKit.UIImage? = nil, priority: Foundation.Operation.QueuePriority = .normal, completion: ((UIKit.UIImage?) -> Swift.Void)? = nil)
+  public func bkSetImageWithUrlRequest(_ request: Foundation.URLRequest, placeHolderImage: UIKit.UIImage? = nil, priority: Foundation.Operation.QueuePriority = .normal, success: ((Foundation.URLRequest?, Foundation.URLResponse?, UIKit.UIImage, Swift.Bool) -> Swift.Void)?, failure: ((Foundation.URLRequest?, Foundation.URLResponse?, Foundation.NSError) -> Swift.Void)?)
+}
+public typealias Parameters = [Swift.String : Any]
+public protocol ParameterEncoding {
+  func encode(_ urlRequest: BeamEnterpriseKit.URLRequestConvertible, with parameters: BeamEnterpriseKit.Parameters?) throws -> Foundation.URLRequest
+}
+public struct URLEncoding : BeamEnterpriseKit.ParameterEncoding {
+  public enum Destination {
+    case methodDependent
+    case queryString
+    case httpBody
+    public static func == (a: BeamEnterpriseKit.URLEncoding.Destination, b: BeamEnterpriseKit.URLEncoding.Destination) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  public enum ArrayEncoding {
+    case brackets
+    case noBrackets
+    public static func == (a: BeamEnterpriseKit.URLEncoding.ArrayEncoding, b: BeamEnterpriseKit.URLEncoding.ArrayEncoding) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  public enum BoolEncoding {
+    case numeric
+    case literal
+    public static func == (a: BeamEnterpriseKit.URLEncoding.BoolEncoding, b: BeamEnterpriseKit.URLEncoding.BoolEncoding) -> Swift.Bool
+    public var hashValue: Swift.Int {
+      get
+    }
+    public func hash(into hasher: inout Swift.Hasher)
+  }
+  public static var `default`: BeamEnterpriseKit.URLEncoding {
+    get
+  }
+  public static var queryString: BeamEnterpriseKit.URLEncoding {
+    get
+  }
+  public static var httpBody: BeamEnterpriseKit.URLEncoding {
+    get
+  }
+  public let destination: BeamEnterpriseKit.URLEncoding.Destination
+  public let arrayEncoding: BeamEnterpriseKit.URLEncoding.ArrayEncoding
+  public let boolEncoding: BeamEnterpriseKit.URLEncoding.BoolEncoding
+  public init(destination: BeamEnterpriseKit.URLEncoding.Destination = .methodDependent, arrayEncoding: BeamEnterpriseKit.URLEncoding.ArrayEncoding = .brackets, boolEncoding: BeamEnterpriseKit.URLEncoding.BoolEncoding = .numeric)
+  public func encode(_ urlRequest: BeamEnterpriseKit.URLRequestConvertible, with parameters: BeamEnterpriseKit.Parameters?) throws -> Foundation.URLRequest
+  public func queryComponents(fromKey key: Swift.String, value: Any) -> [(Swift.String, Swift.String)]
+  public func escape(_ string: Swift.String) -> Swift.String
+}
+public struct JSONEncoding : BeamEnterpriseKit.ParameterEncoding {
+  public static var `default`: BeamEnterpriseKit.JSONEncoding {
+    get
+  }
+  public static var prettyPrinted: BeamEnterpriseKit.JSONEncoding {
+    get
+  }
+  public let options: Foundation.JSONSerialization.WritingOptions
+  public init(options: Foundation.JSONSerialization.WritingOptions = [])
+  public func encode(_ urlRequest: BeamEnterpriseKit.URLRequestConvertible, with parameters: BeamEnterpriseKit.Parameters?) throws -> Foundation.URLRequest
+  public func encode(_ urlRequest: BeamEnterpriseKit.URLRequestConvertible, withJSONObject jsonObject: Any? = nil) throws -> Foundation.URLRequest
+}
+public struct HTTPMethod : Swift.RawRepresentable, Swift.Equatable, Swift.Hashable {
+  public static let connect: BeamEnterpriseKit.HTTPMethod
+  public static let delete: BeamEnterpriseKit.HTTPMethod
+  public static let get: BeamEnterpriseKit.HTTPMethod
+  public static let head: BeamEnterpriseKit.HTTPMethod
+  public static let options: BeamEnterpriseKit.HTTPMethod
+  public static let patch: BeamEnterpriseKit.HTTPMethod
+  public static let post: BeamEnterpriseKit.HTTPMethod
+  public static let put: BeamEnterpriseKit.HTTPMethod
+  public static let trace: BeamEnterpriseKit.HTTPMethod
+  public let rawValue: Swift.String
+  public init(rawValue: Swift.String)
+  public typealias RawValue = Swift.String
+}
+public protocol URLConvertible {
+  func asURL() throws -> Foundation.URL
+}
+extension String : BeamEnterpriseKit.URLConvertible {
+  public func asURL() throws -> Foundation.URL
+}
+extension URL : BeamEnterpriseKit.URLConvertible {
+  public func asURL() throws -> Foundation.URL
+}
+extension URLComponents : BeamEnterpriseKit.URLConvertible {
+  public func asURL() throws -> Foundation.URL
+}
+public protocol URLRequestConvertible {
+  func asURLRequest() throws -> Foundation.URLRequest
+}
+extension URLRequestConvertible {
+  public var urlRequest: Foundation.URLRequest? {
+    get
+  }
+}
+extension URLRequest : BeamEnterpriseKit.URLRequestConvertible {
+  public func asURLRequest() throws -> Foundation.URLRequest
+}
+extension URLRequest {
+  public init(url: BeamEnterpriseKit.URLConvertible, method: BeamEnterpriseKit.HTTPMethod, headers: BeamEnterpriseKit.HTTPHeaders? = nil) throws
+}
+extension CharacterSet {
+  public static let afURLQueryAllowed: Foundation.CharacterSet
+}
+public struct HTTPHeaders {
+  public init()
+  public init(_ headers: [BeamEnterpriseKit.HTTPHeader])
+  public init(_ dictionary: [Swift.String : Swift.String])
+  public mutating func add(name: Swift.String, value: Swift.String)
+  public mutating func add(_ header: BeamEnterpriseKit.HTTPHeader)
+  public mutating func update(name: Swift.String, value: Swift.String)
+  public mutating func update(_ header: BeamEnterpriseKit.HTTPHeader)
+  public mutating func remove(name: Swift.String)
+  public mutating func sort()
+  public func sorted() -> BeamEnterpriseKit.HTTPHeaders
+  public func value(for name: Swift.String) -> Swift.String?
+  public subscript(name: Swift.String) -> Swift.String? {
+    get
+    set
+  }
+  public var dictionary: [Swift.String : Swift.String] {
+    get
+  }
+}
+extension HTTPHeaders : Swift.ExpressibleByDictionaryLiteral {
+  public init(dictionaryLiteral elements: (Swift.String, Swift.String)...)
+  public typealias Key = Swift.String
+  public typealias Value = Swift.String
+}
+extension HTTPHeaders : Swift.ExpressibleByArrayLiteral {
+  public init(arrayLiteral elements: BeamEnterpriseKit.HTTPHeader...)
+  public typealias ArrayLiteralElement = BeamEnterpriseKit.HTTPHeader
+}
+extension HTTPHeaders : Swift.Sequence {
+  public func makeIterator() -> Swift.IndexingIterator<[BeamEnterpriseKit.HTTPHeader]>
+}
+extension HTTPHeaders : Swift.Collection {
+  public var startIndex: Swift.Int {
+    get
+  }
+  public var endIndex: Swift.Int {
+    get
+  }
+  public subscript(position: Swift.Int) -> BeamEnterpriseKit.HTTPHeader {
+    get
+  }
+  public func index(after i: Swift.Int) -> Swift.Int
+  public typealias Element = BeamEnterpriseKit.HTTPHeader
+  public typealias Index = Swift.Int
+  public typealias Iterator = Swift.IndexingIterator<[BeamEnterpriseKit.HTTPHeader]>
+  public typealias SubSequence = Swift.Slice<BeamEnterpriseKit.HTTPHeaders>
+  public typealias Indices = Swift.DefaultIndices<BeamEnterpriseKit.HTTPHeaders>
+}
+extension HTTPHeaders : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+public struct HTTPHeader : Swift.Hashable {
+  public let name: Swift.String
+  public let value: Swift.String
+  public init(name: Swift.String, value: Swift.String)
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+  public static func == (a: BeamEnterpriseKit.HTTPHeader, b: BeamEnterpriseKit.HTTPHeader) -> Swift.Bool
+}
+extension HTTPHeader : Swift.CustomStringConvertible {
+  public var description: Swift.String {
+    get
+  }
+}
+extension HTTPHeader {
+  public static func accept(_ value: Swift.String) -> BeamEnterpriseKit.HTTPHeader
+  public static func acceptCharset(_ value: Swift.String) -> BeamEnterpriseKit.HTTPHeader
+  public static func acceptLanguage(_ value: Swift.String) -> BeamEnterpriseKit.HTTPHeader
+  public static func acceptEncoding(_ value: Swift.String) -> BeamEnterpriseKit.HTTPHeader
+  public static func authorization(username: Swift.String, password: Swift.String) -> BeamEnterpriseKit.HTTPHeader
+  public static func authorization(bearerToken: Swift.String) -> BeamEnterpriseKit.HTTPHeader
+  public static func authorization(_ value: Swift.String) -> BeamEnterpriseKit.HTTPHeader
+  public static func contentDisposition(_ value: Swift.String) -> BeamEnterpriseKit.HTTPHeader
+  public static func contentType(_ value: Swift.String) -> BeamEnterpriseKit.HTTPHeader
+  public static func userAgent(_ value: Swift.String) -> BeamEnterpriseKit.HTTPHeader
+}
+extension HTTPHeaders {
+  public static let `default`: BeamEnterpriseKit.HTTPHeaders
+}
+extension HTTPHeader {
+  public static let defaultAcceptEncoding: BeamEnterpriseKit.HTTPHeader
+  public static let defaultAcceptLanguage: BeamEnterpriseKit.HTTPHeader
+  public static let defaultUserAgent: BeamEnterpriseKit.HTTPHeader
+}
+extension URLRequest {
+  public var headers: BeamEnterpriseKit.HTTPHeaders {
+    get
+    set
+  }
+}
+extension HTTPURLResponse {
+  public var headers: BeamEnterpriseKit.HTTPHeaders {
+    get
+  }
+}
+extension URLSessionConfiguration {
+  public var headers: BeamEnterpriseKit.HTTPHeaders {
+    get
+    set
+  }
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class BK_INSCommunityTile : UIKit.UIView {
+  final public let ctaButton: UIKit.UIButton
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc override dynamic public func layoutSubviews()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class BK_INSPersonalImpactView : UIKit.UIView {
+  final public let ctaButton: UIKit.UIButton
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc override dynamic public func layoutSubviews()
+  @objc deinit
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class BK_INSPostPurchaseView : UIKit.UIView {
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc override dynamic public func layoutSubviews()
+  public func configure()
+  @objc deinit
+}
+public class BKImpactFlow {
+  public init()
+  public init(user: Swift.String?, zip: Swift.String?)
+  public func showFullImpact(from viewController: UIKit.UIViewController)
+  public func showInstacartImpact(with delegate: BeamEnterpriseKit.BK_INSImpactVCDelegate?, from viewController: UIKit.UIViewController)
+  @objc deinit
+}
+public protocol BK_INSImpactVCDelegate : AnyObject {
+  func didDismiss()
+  func didRequestToSelectNonprofit()
+  func didRequestToViewNationalImpact()
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class BK_INSCumulativeImpactView : UIKit.UIView {
+  final public let ctaButton: UIKit.UIButton
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+  @objc deinit
+}
+public protocol BKImpactViewDelegate : AnyObject {
+  var baseViewController: UIKit.UIViewController { get }
+}
+public enum BKImpactDisplayType {
+  case classic
+  case wordsBelowImage
+  public static func == (a: BeamEnterpriseKit.BKImpactDisplayType, b: BeamEnterpriseKit.BKImpactDisplayType) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+@objc @_inheritsConvenienceInitializers @_hasMissingDesignatedInitializers public class BKImpactView : UIKit.UIView {
+  public var titleFont: UIKit.UIFont? {
+    get
+    set
+  }
+  public var buttonFont: UIKit.UIFont? {
+    get
+    set
+  }
+  public var descriptionFont: UIKit.UIFont? {
+    get
+    set
+  }
+  public var buttonColor: UIKit.UIColor {
+    get
+    set
+  }
+  public var buttonTitleColor: UIKit.UIColor {
+    get
+    set
+  }
+  public var descriptionColor: UIKit.UIColor {
+    get
+    set
+  }
+  public var buttonCornerRadius: CoreGraphics.CGFloat {
+    get
+    set
+  }
+  public var emptyStateTitle: Swift.String
+  public init(type: BeamEnterpriseKit.BKImpactDisplayType = .classic, frame: CoreGraphics.CGRect, delegate: BeamEnterpriseKit.BKImpactViewDelegate)
+  public func loadImpact(forceReload: Swift.Bool = false)
+  @objc override dynamic public var intrinsicContentSize: CoreGraphics.CGSize {
+    @objc get
+  }
+  @objc deinit
+}
+public enum BeamError : Swift.Error {
+  case invalidUser
+  case invalidStore
+  case invalidCredentials
+  case invalidConfiguration
+  case networkError
+  case none
+  public static func == (a: BeamEnterpriseKit.BeamError, b: BeamEnterpriseKit.BeamError) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum BKEnvironment {
+  case production
+  case staging
+  public static func == (a: BeamEnterpriseKit.BKEnvironment, b: BeamEnterpriseKit.BKEnvironment) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+@objc public class BKManager : ObjectiveC.NSObject {
+  public init(with key: Swift.String, environment: BeamEnterpriseKit.BKEnvironment, logLevel: BeamEnterpriseKit.BKLogLevel, language: Swift.String? = "en", chainID: Swift.Int? = nil, options: [Swift.String : Any]?)
+  public func registerUser(id: Swift.String? = nil, info: [Swift.String : Any]? = nil, _ completion: ((Swift.String?, BeamEnterpriseKit.BeamError) -> Swift.Void)? = nil)
+  public func registerCustomBackButton(image: UIKit.UIImage, tint: UIKit.UIColor)
+  public func deregisterUser(_ completion: ((BeamEnterpriseKit.BeamError) -> Swift.Void)? = nil)
+  @objc deinit
+  @objc override dynamic public init()
+}
+extension BKManager {
+  public func beginTransaction(at storeID: Swift.String, spend: CoreGraphics.CGFloat, forceMatchView: Swift.Bool = false, email: Swift.String? = nil, _ completion: ((BeamEnterpriseKit.BKChooseNonprofitViewType?, BeamEnterpriseKit.BeamError) -> Swift.Void)? = nil)
+  public func prepareSelection(at zip: Swift.String, user: Swift.String? = nil, _ completion: ((BeamEnterpriseKit.BeamError) -> Swift.Void)? = nil)
+  public func completeCurrentTransaction(_ completion: ((Swift.Int?, BeamEnterpriseKit.BeamError) -> Swift.Void)? = nil)
+  public func register(_ completion: ((BeamEnterpriseKit.BeamError) -> Swift.Void)? = nil)
+  public func webRegister(_ completion: ((BeamEnterpriseKit.BeamError) -> Swift.Void)? = nil)
+  public func cancelTransaction(id: Swift.Int, _ completion: ((BeamEnterpriseKit.BeamError) -> Swift.Void)? = nil)
+}
+public protocol BKChooseNonprofitViewDelegate : AnyObject {
+  func didDismiss()
+}
+@objc @_hasMissingDesignatedInitializers public class BKChooseNonprofitVC : UIKit.UIViewController {
+  weak public var delegate: BeamEnterpriseKit.BKChooseNonprofitViewDelegate?
+  public class func new() -> BeamEnterpriseKit.BKChooseNonprofitVC?
+  @objc override dynamic public func viewDidLoad()
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+@objc @_inheritsConvenienceInitializers public class BK_INSTutorialSlideVC : UIKit.UIViewController {
+  @objc override dynamic public func viewDidLayoutSubviews()
+  @objc override dynamic public func viewDidLoad()
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+  @objc deinit
+}
+public protocol BK_INSChooseNonprofitVCDelegate : AnyObject {
+  func didDismiss()
+  func didRequestToLearnMore()
+}
+@objc @_hasMissingDesignatedInitializers public class BK_INSChooseNonprofitVC : UIKit.UIViewController {
+  weak public var delegate: BeamEnterpriseKit.BK_INSChooseNonprofitVCDelegate?
+  public class func new() -> BeamEnterpriseKit.BK_INSChooseNonprofitVC?
+  @objc override dynamic public func viewDidLoad()
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+}
+public protocol BKTransactionViewDelegate : AnyObject {
+  var baseViewController: UIKit.UIViewController { get }
+  func didToggleMatch(on: Swift.Bool, amount: CoreGraphics.CGFloat)
+}
+public enum BKBackgroundType {
+  case solid(UIKit.UIColor)
+  case gradient(UIKit.UIColor, UIKit.UIColor)
+  case beamGradient
+  case image
+  case leftImage
+}
+@objc @_hasMissingDesignatedInitializers public class BKTransactionView : UIKit.UIView {
+  weak public var delegate: BeamEnterpriseKit.BKTransactionViewDelegate?
+  public var cornerRadius: CoreGraphics.CGFloat {
+    get
+    set
+  }
+  public var borderColor: UIKit.UIColor {
+    get
+    set
+  }
+  public var borderWidth: CoreGraphics.CGFloat {
+    get
+    set
+  }
+  public var titleFont: UIKit.UIFont? {
+    get
+    set
+  }
+  public var buttonFont: UIKit.UIFont? {
+    get
+    set
+  }
+  public init?(type: BeamEnterpriseKit.BKBackgroundType)
+  @objc override dynamic public func layoutSubviews()
+  @objc override dynamic public var intrinsicContentSize: CoreGraphics.CGSize {
+    @objc get
+  }
+  @objc deinit
+  @objc override dynamic public init(frame: CoreGraphics.CGRect)
+}
+@objc @_inheritsConvenienceInitializers public class BK_INSTutorialDialogVC : UIKit.UIViewController {
+  @objc override dynamic public func viewDidLoad()
+  @objc deinit
+  @objc override dynamic public init(nibName nibNameOrNil: Swift.String?, bundle nibBundleOrNil: Foundation.Bundle?)
+  @objc required dynamic public init?(coder: Foundation.NSCoder)
+}
+public enum BKChooseNonprofitViewType {
+  case fullScreen
+  case widget
+  public static func == (a: BeamEnterpriseKit.BKChooseNonprofitViewType, b: BeamEnterpriseKit.BKChooseNonprofitViewType) -> Swift.Bool
+  public var hashValue: Swift.Int {
+    get
+  }
+  public func hash(into hasher: inout Swift.Hasher)
+}
+public enum BKLogLevel : Swift.Int {
+  case debug
+  case info
+  case warning
+  case error
+  case critical
+  case exception
+  public typealias RawValue = Swift.Int
+  public init?(rawValue: Swift.Int)
+  public var rawValue: Swift.Int {
+    get
+  }
+}
+extension BeamEnterpriseKit.URLEncoding.Destination : Swift.Equatable {}
+extension BeamEnterpriseKit.URLEncoding.Destination : Swift.Hashable {}
+extension BeamEnterpriseKit.URLEncoding.ArrayEncoding : Swift.Equatable {}
+extension BeamEnterpriseKit.URLEncoding.ArrayEncoding : Swift.Hashable {}
+extension BeamEnterpriseKit.URLEncoding.BoolEncoding : Swift.Equatable {}
+extension BeamEnterpriseKit.URLEncoding.BoolEncoding : Swift.Hashable {}
+extension BeamEnterpriseKit.BKImpactDisplayType : Swift.Equatable {}
+extension BeamEnterpriseKit.BKImpactDisplayType : Swift.Hashable {}
+extension BeamEnterpriseKit.BeamError : Swift.Equatable {}
+extension BeamEnterpriseKit.BeamError : Swift.Hashable {}
+extension BeamEnterpriseKit.BKEnvironment : Swift.Equatable {}
+extension BeamEnterpriseKit.BKEnvironment : Swift.Hashable {}
+extension BeamEnterpriseKit.BKChooseNonprofitViewType : Swift.Equatable {}
+extension BeamEnterpriseKit.BKChooseNonprofitViewType : Swift.Hashable {}
+extension BeamEnterpriseKit.BKLogLevel : Swift.Equatable {}
+extension BeamEnterpriseKit.BKLogLevel : Swift.Hashable {}
+extension BeamEnterpriseKit.BKLogLevel : Swift.RawRepresentable {}
