@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1B05028727316A93001A1189 /* BeamMedia.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B05028627316A93001A1189 /* BeamMedia.xcassets */; };
 		1B174E6227315BF300C8F8B3 /* BeamEnterpriseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B174E6027315BF300C8F8B3 /* BeamEnterpriseKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		1B7BC4182732563500BB7CC3 /* Poppins-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B9825BB27322D8E0043C941 /* Poppins-Bold.ttf */; };
+		1B7BC4192732563500BB7CC3 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B9825BA27322D8E0043C941 /* Poppins-Regular.ttf */; };
+		1B7BC41A2732563500BB7CC3 /* Poppins-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 1B9825BE27322D8E0043C941 /* Poppins-SemiBold.ttf */; };
 		1B98254F27322B530043C941 /* BKChooseNonprofitFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98254D27322B530043C941 /* BKChooseNonprofitFlow.swift */; };
 		1B98255027322B530043C941 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98254E27322B530043C941 /* Log.swift */; };
 		1B98255E27322C9A0043C941 /* BK_INSNonprofitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98255227322C980043C941 /* BK_INSNonprofitButton.swift */; };
@@ -309,6 +312,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1B7BC4182732563500BB7CC3 /* Poppins-Bold.ttf in Resources */,
+				1B7BC4192732563500BB7CC3 /* Poppins-Regular.ttf in Resources */,
+				1B7BC41A2732563500BB7CC3 /* Poppins-SemiBold.ttf in Resources */,
 				1B05028727316A93001A1189 /* BeamMedia.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

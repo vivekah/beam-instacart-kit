@@ -8,18 +8,18 @@
   "tvOS" : [
 
   ],
-  "commitish" : "ae432d6ac0eb201d90b4328c5c74e5f60ea491f9",
+  "commitish" : "776a6489488e15144bcb8c4bea396d914098742e",
   "iOS" : [
     {
       "swiftToolchainVersion" : "5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)",
-      "hash" : "9cac205c592035c51e865f2c6b30d4adaf373178d0fa17db3acf74625694c0ce",
+      "hash" : "eceb23fb577471d3745600d4de7023b87618c8b013887bb3eccebb4a1e4db5d1",
       "name" : "BeamEnterpriseKit",
       "container" : "BeamEnterpriseKit.xcframework",
       "identifier" : "ios-arm64_x86_64-simulator"
     },
     {
       "swiftToolchainVersion" : "5.3 (swiftlang-1200.0.29.2 clang-1200.0.30.1)",
-      "hash" : "294d1371f80dd31fa9c52b53ec488ed8c5fcc7af124baa1a3310b156d5c97799",
+      "hash" : "601274571ab8f2da7ffc68a2775eeb50e44f13c2e09cdb2a97d35c78b6cdf6e2",
       "name" : "BeamEnterpriseKit",
       "container" : "BeamEnterpriseKit.xcframework",
       "identifier" : "ios-arm64"

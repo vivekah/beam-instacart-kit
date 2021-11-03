@@ -88,6 +88,18 @@
 		<data>
 		mfB3Cl49j0gc1qHxqMsdZdSUQl4=
 		</data>
+		<key>Poppins-Bold.ttf</key>
+		<data>
+		y+SMeF8a9rzXMgYJCUBV4plIHak=
+		</data>
+		<key>Poppins-Regular.ttf</key>
+		<data>
+		RA3ImSUXowbWblXLCv7Qz+m5cbU=
+		</data>
+		<key>Poppins-SemiBold.ttf</key>
+		<data>
+		Dbu21aj6D57OQV3aSmnIqmWV+6U=
+		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
@@ -229,6 +241,27 @@
 			<key>hash2</key>
 			<data>
 			jEtyXky3CGhYK09cIpyvXmg3T7+HQsbiNG9h7Bzarqc=
+			</data>
+		</dict>
+		<key>Poppins-Bold.ttf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			IQkz+xu06EbTfvAMksrmNqw1YzEyzyFXx6yHnyf4IGg=
+			</data>
+		</dict>
+		<key>Poppins-Regular.ttf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			JCXrvAIb/dGP5V7b7rFTnSKiFyEsFEMKfU11JmozO7w=
+			</data>
+		</dict>
+		<key>Poppins-SemiBold.ttf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			HWZdW3WpUABAsswgHCsHr1+spyKDctxvRXLS1bIpEJc=
 			</data>
 		</dict>
 	</dict>
