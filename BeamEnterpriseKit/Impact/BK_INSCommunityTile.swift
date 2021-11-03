@@ -54,7 +54,7 @@ public class BK_INSCommunityTile: UIView {
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.8
         label.text = "Fund 10,000 meals to nourish communities impacted by Hurricane Ida"
-        label.textColor = .instacartDescriptionGrey
+        label.textColor = .instacartTitleGrey
         return label
     }()
     
@@ -94,7 +94,7 @@ public class BK_INSCommunityTile: UIView {
         button.contentHorizontalAlignment = .left;
         button.titleLabel?.lineBreakMode = .byWordWrapping
         button.titleLabel?.numberOfLines = 0
-        button.setTitle("To support this goal, <span style='color:#0AAD0A;'> choose this food bank ›</span>", for: .normal)
+        button.setTitle("To support this goal, <font style='color:#0AAD0A;'> choose this food bank ›</font>", for: .normal)
         return button
     }()
     
@@ -141,16 +141,24 @@ public class BK_INSCommunityTile: UIView {
     func configure(with nonprofit: BKNonprofit?) {
         nameLabel.text = nonprofit?.name
         causeLabel.text = nonprofit?.cause
-        infoTextLabelView.text = nonprofit?.impactDescription
         progressBar.numerator = CGFloat(nonprofit?.percentage ?? 0)
         progressBar.denominator = 100
         let percentage = nonprofit?.percentage ?? 0
         percentageLabel.text = "\(percentage)%"
         progressBar.setNeedsLayout()
-
+        regionLabel.text = nonprofit?.badge
+        
         if let image = nonprofit?.image,
             let url = URL(string: image) {
                 nonprofitImage.bkSetImageWithUrl(url)
+        }
+        
+        if let goal = nonprofit?.impactDescription {
+            infoTextLabelView.text = goal
+            let style = NSMutableParagraphStyle()
+            style.lineHeightMultiple = 1.28
+            let attributedString = NSAttributedString(string: goal, attributes: [NSAttributedString.Key.paragraphStyle: style])
+            infoTextLabelView.attributedText = attributedString
         }
         
         configureCTA(with: nonprofit)
@@ -161,19 +169,27 @@ public class BK_INSCommunityTile: UIView {
         isFavorite = nonprofit.isFavorite
         let donationCount = Int(nonprofit.totalDonations)
         let goalCompletion = Int(nonprofit.goalCompletion)
+        ctaButton.isEnabled = true
         
         if isFavorite && donationCount > 0 {
             ctaButton.setAttributedTitle("You have contributed <b>\(donationCount) meals</b> toward the goal. This is your selected nonprofit.".bkhtmlAttributedString(), for: .normal)
             backgroundColor = .instacartDisableGrey
+            ctaButton.isEnabled = false
         } else if isFavorite {
             ctaButton.setAttributedTitle("Support your chosen foodbank. Just place an order and 1 meal will be funded at no cost to you.".bkhtmlAttributedString(), for: .normal)
             backgroundColor = .instacartDisableGrey
+            ctaButton.isEnabled = false
         } else if goalCompletion > 0 {
             backgroundColor = .white
-            ctaButton.setAttributedTitle("✅ Instacart has completed this goal \(goalCompletion) times! Help us do it again. <span style='color:#0AAD0A;'>change to this food bank ›</span>".bkhtmlAttributedString(), for: .normal)
+            ctaButton.setAttributedTitle("✅ Instacart has completed this goal \(goalCompletion) times! Help us do it again. <font style='color:#0AAD0A;'>change to this food bank ›</font>".bkhtmlAttributedString(), for: .normal)
         } else if BeamKitContext.shared.getNonprofitName() != nil {
             backgroundColor = .white
-            ctaButton.setAttributedTitle("To support this goal, <span style='color:#0AAD0A;'>change to this food bank ›</span>".bkhtmlAttributedString(), for: .normal)
+            ctaButton.setAttributedTitle("To support this goal, <font style='color:#0AAD0A;'>change to this food bank ›</font>".bkhtmlAttributedString(), for: .normal)
+        }
+        
+        if let cta = nonprofit.impactCTA,
+           !cta.isEmpty {
+            ctaButton.setAttributedTitle(cta.bkhtmlAttributedString(), for: .normal)
         }
 
     }
@@ -189,7 +205,7 @@ public class BK_INSCommunityTile: UIView {
                             "per": percentageLabel,
                             "cta": ctaButton]
         
-        let formats: [String] = ["V:|-16-[image(120)]-[reg]-3-[name]-3-[cause]-3-[goal]-[bar(6)]-[sep(1)]-[cta]-16-|",
+        let formats: [String] = ["V:|-16-[image(120)]-[reg]-6-[name]-6-[cause]-6-[goal]-[bar(6)]-[sep(1)]-[cta]-16-|",
                                  "H:|-16-[image]-16-|",
                                  "H:|-16-[reg]-16-|",
                                  "H:|-16-[name]-16-|",

@@ -64,7 +64,7 @@ class Network {
         case .staging:
             return "https://staging-central-backend.beamimpact.com/api/v2/"
         case .production:
-            return "https://prod.sdk.beamimpact.com/api/v1/"
+            return "https://production-central-backend.beamimpact.com/api/v2"
         }
     }()
     

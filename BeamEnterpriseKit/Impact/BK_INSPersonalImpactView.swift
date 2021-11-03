@@ -29,7 +29,7 @@ public class BK_INSPersonalImpactView: UIView {
         label.backgroundColor = .clear
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 1
-        label.text = "Join us in the fight against food insecurity"
+        //label.text = "Join us in the fight against food insecurity"
         label.textColor = .instacartTitleGrey
         label.font = .beamBold(size: 18)
         return label
@@ -43,7 +43,7 @@ public class BK_INSPersonalImpactView: UIView {
         label.backgroundColor = .clear
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 1
-        label.text = "Fund meals this holiday season by simply placing your order."
+       // label.text = "Fund meals this holiday season by simply placing your order."
         label.textColor = .instacartTitleGrey
         return label
     }()
@@ -52,7 +52,7 @@ public class BK_INSPersonalImpactView: UIView {
     
     let percentageLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.font = UIDevice.current.is5or4Phone ? UIFont.beamRegular(size: 11.0) : UIFont.beamRegular(size: 12.0)
+        label.font = UIFont.beamRegular(size: 12.0)
         label.textAlignment = .right
         label.numberOfLines = 1
         label.textColor = .instacartDescriptionGrey
@@ -69,7 +69,7 @@ public class BK_INSPersonalImpactView: UIView {
         button.titleLabel?.font = .beamSemiBold(size: 12)
         button.setTitleColor(.instacartGreen, for: .normal)
         button.contentHorizontalAlignment = .left;
-        button.setTitle("Select a nonprofit", for: .normal)
+        //button.setTitle("Select a nonprofit", for: .normal)
         return button
     }()
     
@@ -118,6 +118,24 @@ public class BK_INSPersonalImpactView: UIView {
            let imageURL = URL(string: image) {
             nonprofitImage.bkSetImageWithUrl(imageURL)
         }
+        
+        if let title = impact.copy.personalImpactTitle {
+            self.titleLabel.text = title
+            let style = NSMutableParagraphStyle()
+            style.lineHeightMultiple = 1.23
+            let attributedString = NSAttributedString(string: title, attributes: [NSAttributedString.Key.paragraphStyle: style])
+            self.titleLabel.attributedText = attributedString
+        }
+        
+        if let sub = impact.copy.personalImpactDescription {
+            self.subLabel.text = sub
+            let style = NSMutableParagraphStyle()
+            style.lineHeightMultiple = 1.28
+            let attributedString = NSAttributedString(string: sub, attributes: [NSAttributedString.Key.paragraphStyle: style])
+            self.subLabel.attributedText = attributedString
+        }
+        
+        
     }
     
     func setupConstraints() {
@@ -144,6 +162,13 @@ public class BK_INSPersonalImpactView: UIView {
                                                 attribute: .centerY,
                                                 relatedBy: .equal,
                                                 toItem: progressBar,
+                                                attribute: .centerY,
+                                                multiplier: 1.0,
+                                                constant: 0),
+                        NSLayoutConstraint.init(item: nonprofitImage,
+                                                attribute: .centerY,
+                                                relatedBy: .equal,
+                                                toItem: titleLabel,
                                                 attribute: .centerY,
                                                 multiplier: 1.0,
                                                 constant: 0)]

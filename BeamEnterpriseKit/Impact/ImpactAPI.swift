@@ -161,6 +161,7 @@ extension ImpactAPI {
             completion?(nil, .invalidUser)
             return
         }
+        
         Network.shared.get(urlPath: "users/impact/instacart?zip_code=\(zip)&user=\(userID)&lan=\(language)",
         successJSONHandler: successHandler,
         errorHandler: errorHandler)
@@ -221,3 +222,4 @@ extension ImpactAPI {
         return copy
     }
 }
+

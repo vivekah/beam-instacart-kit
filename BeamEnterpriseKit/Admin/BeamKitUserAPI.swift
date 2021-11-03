@@ -65,7 +65,7 @@ class BeamKitUserAPI {
 //                return
 //            }
             
-            BKLog.debug("Beam Registered User with id \(id)")
+            BKLog.debug("Beam Registered User with id \(String(describing: id))")
             completion?(id, .none)
         }
         

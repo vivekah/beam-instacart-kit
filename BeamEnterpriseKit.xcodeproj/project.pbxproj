@@ -7,118 +7,117 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1B050207273168C6001A1189 /* BKTransactionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0501FB273168C5001A1189 /* BKTransactionContext.swift */; };
-		1B050208273168C6001A1189 /* BK_INSTutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0501FC273168C5001A1189 /* BK_INSTutorialVC.swift */; };
-		1B050209273168C6001A1189 /* BKMatchTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0501FD273168C5001A1189 /* BKMatchTransactionView.swift */; };
-		1B05020A273168C6001A1189 /* BK_INSNonprofitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0501FE273168C5001A1189 /* BK_INSNonprofitButton.swift */; };
-		1B05020B273168C6001A1189 /* BKTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0501FF273168C5001A1189 /* BKTransactionView.swift */; };
-		1B05020C273168C6001A1189 /* NonprofitAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B050200273168C5001A1189 /* NonprofitAPI.swift */; };
-		1B05020D273168C6001A1189 /* NonprofitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B050201273168C5001A1189 /* NonprofitView.swift */; };
-		1B05020E273168C6001A1189 /* TransactionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B050202273168C5001A1189 /* TransactionAPI.swift */; };
-		1B05020F273168C6001A1189 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B050203273168C5001A1189 /* Transaction.swift */; };
-		1B050210273168C6001A1189 /* BK_INSTutorialDialogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B050204273168C5001A1189 /* BK_INSTutorialDialogVC.swift */; };
-		1B050211273168C6001A1189 /* BKChooseNonprofitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B050205273168C6001A1189 /* BKChooseNonprofitVC.swift */; };
-		1B050212273168C6001A1189 /* BK_INSChooseNonprofitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B050206273168C6001A1189 /* BK_INSChooseNonprofitVC.swift */; };
-		1B05021A2731691D001A1189 /* BeamError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0502162731691D001A1189 /* BeamError.swift */; };
-		1B05021B2731691D001A1189 /* BKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0502172731691D001A1189 /* BKManager.swift */; };
-		1B05021C2731691D001A1189 /* BeamKitUserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0502182731691D001A1189 /* BeamKitUserAPI.swift */; };
-		1B05021D2731691D001A1189 /* BeamKitContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0502192731691D001A1189 /* BeamKitContext.swift */; };
-		1B05022727316949001A1189 /* GradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05022127316949001A1189 /* GradientLayer.swift */; };
-		1B05022827316949001A1189 /* GradientTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05022227316949001A1189 /* GradientTextView.swift */; };
-		1B05022927316949001A1189 /* BK_INSToolTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05022327316949001A1189 /* BK_INSToolTip.swift */; };
-		1B05022A27316949001A1189 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05022427316949001A1189 /* ProgressBar.swift */; };
-		1B05022B27316949001A1189 /* BKGradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05022527316949001A1189 /* BKGradientButton.swift */; };
-		1B05022C27316949001A1189 /* BackArrowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05022627316949001A1189 /* BackArrowButton.swift */; };
-		1B05024027316977001A1189 /* BKCommunityImpactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05022F27316975001A1189 /* BKCommunityImpactCell.swift */; };
-		1B05024127316977001A1189 /* BK_INSCumulativeImpactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05023027316975001A1189 /* BK_INSCumulativeImpactView.swift */; };
-		1B05024227316977001A1189 /* BKImpactContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05023127316975001A1189 /* BKImpactContext.swift */; };
-		1B05024327316977001A1189 /* BKFullImpactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05023227316975001A1189 /* BKFullImpactVC.swift */; };
-		1B05024427316977001A1189 /* TitleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05023327316976001A1189 /* TitleImageView.swift */; };
-		1B05024527316977001A1189 /* BKImpactFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05023427316976001A1189 /* BKImpactFlow.swift */; };
-		1B05024627316977001A1189 /* BKImpactPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05023527316976001A1189 /* BKImpactPageVC.swift */; };
-		1B05024727316977001A1189 /* BKImpactSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05023627316976001A1189 /* BKImpactSlideView.swift */; };
-		1B05024827316977001A1189 /* ImpactAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05023727316976001A1189 /* ImpactAPI.swift */; };
-		1B05024927316977001A1189 /* BkImpactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05023827316976001A1189 /* BkImpactView.swift */; };
-		1B05024A27316977001A1189 /* BK_INSImpactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05023927316976001A1189 /* BK_INSImpactVC.swift */; };
-		1B05024B27316977001A1189 /* BKImpactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05023A27316976001A1189 /* BKImpactCell.swift */; };
-		1B05024C27316977001A1189 /* BK_INSCommunityTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05023B27316976001A1189 /* BK_INSCommunityTile.swift */; };
-		1B05024D27316977001A1189 /* BKCommunityImpactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05023C27316976001A1189 /* BKCommunityImpactVC.swift */; };
-		1B05024E27316977001A1189 /* BKImpactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05023D27316976001A1189 /* BKImpactVC.swift */; };
-		1B05024F27316977001A1189 /* BK_INSPersonalImpactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05023E27316976001A1189 /* BK_INSPersonalImpactView.swift */; };
-		1B05025027316977001A1189 /* BKImpact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05023F27316976001A1189 /* BKImpact.swift */; };
-		1B0502572731699B001A1189 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B0502562731699B001A1189 /* Log.swift */; };
-		1B050270273169D1001A1189 /* ImageNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05026D273169D1001A1189 /* ImageNetworking.swift */; };
-		1B050271273169D1001A1189 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05026E273169D1001A1189 /* Network.swift */; };
-		1B050272273169D1001A1189 /* URLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B05026F273169D1001A1189 /* URLConvertible.swift */; };
-		1B05027B273169EB001A1189 /* Poppins-SemiBold.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 1B050274273169EB001A1189 /* Poppins-SemiBold.ttf */; };
-		1B05027C273169EB001A1189 /* Font+Beam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B050275273169EB001A1189 /* Font+Beam.swift */; };
-		1B05027D273169EB001A1189 /* UIView+Beam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B050276273169EB001A1189 /* UIView+Beam.swift */; };
-		1B05027E273169EB001A1189 /* Constraints+Beam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B050277273169EB001A1189 /* Constraints+Beam.swift */; };
-		1B05027F273169EB001A1189 /* Poppins-Regular.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 1B050278273169EB001A1189 /* Poppins-Regular.ttf */; };
-		1B050280273169EB001A1189 /* Color+Beam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B050279273169EB001A1189 /* Color+Beam.swift */; };
-		1B050281273169EB001A1189 /* Poppins-Bold.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 1B05027A273169EB001A1189 /* Poppins-Bold.ttf */; };
 		1B05028727316A93001A1189 /* BeamMedia.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1B05028627316A93001A1189 /* BeamMedia.xcassets */; };
 		1B174E6227315BF300C8F8B3 /* BeamEnterpriseKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1B174E6027315BF300C8F8B3 /* BeamEnterpriseKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		1B6F078727316683002A8DBB /* BeamEnterpriseKit.h in Sources */ = {isa = PBXBuildFile; fileRef = 1B174E6027315BF300C8F8B3 /* BeamEnterpriseKit.h */; };
-		1BB2E79C273167820043E50C /* BKChooseNonprofitFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1BB2E793273167820043E50C /* BKChooseNonprofitFlow.swift */; };
+		1B98254F27322B530043C941 /* BKChooseNonprofitFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98254D27322B530043C941 /* BKChooseNonprofitFlow.swift */; };
+		1B98255027322B530043C941 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98254E27322B530043C941 /* Log.swift */; };
+		1B98255E27322C9A0043C941 /* BK_INSNonprofitButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98255227322C980043C941 /* BK_INSNonprofitButton.swift */; };
+		1B98255F27322C9A0043C941 /* NonprofitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98255327322C980043C941 /* NonprofitView.swift */; };
+		1B98256027322C9A0043C941 /* BKChooseNonprofitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98255427322C980043C941 /* BKChooseNonprofitVC.swift */; };
+		1B98256127322C9A0043C941 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98255527322C980043C941 /* Transaction.swift */; };
+		1B98256227322C9A0043C941 /* BK_INSTutorialVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98255627322C990043C941 /* BK_INSTutorialVC.swift */; };
+		1B98256327322C9A0043C941 /* BK_INSChooseNonprofitVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98255727322C990043C941 /* BK_INSChooseNonprofitVC.swift */; };
+		1B98256427322C9A0043C941 /* BKTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98255827322C990043C941 /* BKTransactionView.swift */; };
+		1B98256527322C9A0043C941 /* TransactionAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98255927322C990043C941 /* TransactionAPI.swift */; };
+		1B98256627322C9A0043C941 /* BK_INSTutorialDialogVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98255A27322C990043C941 /* BK_INSTutorialDialogVC.swift */; };
+		1B98256727322C9A0043C941 /* BKTransactionContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98255B27322C990043C941 /* BKTransactionContext.swift */; };
+		1B98256827322C9A0043C941 /* BKMatchTransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98255C27322C990043C941 /* BKMatchTransactionView.swift */; };
+		1B98256927322C9A0043C941 /* NonprofitAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98255D27322C9A0043C941 /* NonprofitAPI.swift */; };
+		1B98257527322CF00043C941 /* BeamKitUserAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98257127322CF00043C941 /* BeamKitUserAPI.swift */; };
+		1B98257627322CF00043C941 /* BeamError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98257227322CF00043C941 /* BeamError.swift */; };
+		1B98257727322CF00043C941 /* BeamKitContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98257327322CF00043C941 /* BeamKitContext.swift */; };
+		1B98257827322CF00043C941 /* BKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98257427322CF00043C941 /* BKManager.swift */; };
+		1B98258327322D140043C941 /* GradientLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98257D27322D130043C941 /* GradientLayer.swift */; };
+		1B98258427322D140043C941 /* BackArrowButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98257E27322D130043C941 /* BackArrowButton.swift */; };
+		1B98258527322D140043C941 /* BK_INSToolTip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98257F27322D130043C941 /* BK_INSToolTip.swift */; };
+		1B98258627322D140043C941 /* GradientTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98258027322D130043C941 /* GradientTextView.swift */; };
+		1B98258727322D140043C941 /* ProgressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98258127322D130043C941 /* ProgressBar.swift */; };
+		1B98258827322D140043C941 /* BKGradientButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98258227322D130043C941 /* BKGradientButton.swift */; };
+		1B98259C27322D3A0043C941 /* BK_INSCommunityTile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98258B27322D390043C941 /* BK_INSCommunityTile.swift */; };
+		1B98259D27322D3A0043C941 /* BKImpactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98258C27322D390043C941 /* BKImpactCell.swift */; };
+		1B98259E27322D3A0043C941 /* BKImpactPageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98258D27322D390043C941 /* BKImpactPageVC.swift */; };
+		1B98259F27322D3A0043C941 /* BK_INSPersonalImpactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98258E27322D390043C941 /* BK_INSPersonalImpactView.swift */; };
+		1B9825A027322D3A0043C941 /* BKImpactFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98258F27322D390043C941 /* BKImpactFlow.swift */; };
+		1B9825A127322D3A0043C941 /* BK_INSImpactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98259027322D390043C941 /* BK_INSImpactVC.swift */; };
+		1B9825A227322D3A0043C941 /* BK_INSCumulativeImpactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98259127322D390043C941 /* BK_INSCumulativeImpactView.swift */; };
+		1B9825A327322D3A0043C941 /* BKCommunityImpactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98259227322D3A0043C941 /* BKCommunityImpactCell.swift */; };
+		1B9825A427322D3A0043C941 /* BkImpactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98259327322D3A0043C941 /* BkImpactView.swift */; };
+		1B9825A527322D3A0043C941 /* BKImpactContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98259427322D3A0043C941 /* BKImpactContext.swift */; };
+		1B9825A627322D3B0043C941 /* BKFullImpactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98259527322D3A0043C941 /* BKFullImpactVC.swift */; };
+		1B9825A727322D3B0043C941 /* BKImpactSlideView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98259627322D3A0043C941 /* BKImpactSlideView.swift */; };
+		1B9825A827322D3B0043C941 /* BKCommunityImpactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98259727322D3A0043C941 /* BKCommunityImpactVC.swift */; };
+		1B9825A927322D3B0043C941 /* BKImpactVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98259827322D3A0043C941 /* BKImpactVC.swift */; };
+		1B9825AA27322D3B0043C941 /* ImpactAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98259927322D3A0043C941 /* ImpactAPI.swift */; };
+		1B9825AB27322D3B0043C941 /* BKImpact.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98259A27322D3A0043C941 /* BKImpact.swift */; };
+		1B9825AC27322D3B0043C941 /* TitleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B98259B27322D3A0043C941 /* TitleImageView.swift */; };
+		1B9825B427322D700043C941 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9825B127322D700043C941 /* Network.swift */; };
+		1B9825B527322D700043C941 /* ImageNetworking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9825B227322D700043C941 /* ImageNetworking.swift */; };
+		1B9825B627322D700043C941 /* URLConvertible.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9825B327322D700043C941 /* URLConvertible.swift */; };
+		1B9825BF27322D8E0043C941 /* Constraints+Beam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9825B827322D8E0043C941 /* Constraints+Beam.swift */; };
+		1B9825C027322D8E0043C941 /* Font+Beam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9825B927322D8E0043C941 /* Font+Beam.swift */; };
+		1B9825C127322D8E0043C941 /* Poppins-Regular.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 1B9825BA27322D8E0043C941 /* Poppins-Regular.ttf */; };
+		1B9825C227322D8E0043C941 /* Poppins-Bold.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 1B9825BB27322D8E0043C941 /* Poppins-Bold.ttf */; };
+		1B9825C327322D8E0043C941 /* Color+Beam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9825BC27322D8E0043C941 /* Color+Beam.swift */; };
+		1B9825C427322D8E0043C941 /* UIView+Beam.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B9825BD27322D8E0043C941 /* UIView+Beam.swift */; };
+		1B9825C527322D8E0043C941 /* Poppins-SemiBold.ttf in Sources */ = {isa = PBXBuildFile; fileRef = 1B9825BE27322D8E0043C941 /* Poppins-SemiBold.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		1B0501FB273168C5001A1189 /* BKTransactionContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKTransactionContext.swift; sourceTree = "<group>"; };
-		1B0501FC273168C5001A1189 /* BK_INSTutorialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BK_INSTutorialVC.swift; sourceTree = "<group>"; };
-		1B0501FD273168C5001A1189 /* BKMatchTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKMatchTransactionView.swift; sourceTree = "<group>"; };
-		1B0501FE273168C5001A1189 /* BK_INSNonprofitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BK_INSNonprofitButton.swift; sourceTree = "<group>"; };
-		1B0501FF273168C5001A1189 /* BKTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKTransactionView.swift; sourceTree = "<group>"; };
-		1B050200273168C5001A1189 /* NonprofitAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonprofitAPI.swift; sourceTree = "<group>"; };
-		1B050201273168C5001A1189 /* NonprofitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonprofitView.swift; sourceTree = "<group>"; };
-		1B050202273168C5001A1189 /* TransactionAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionAPI.swift; sourceTree = "<group>"; };
-		1B050203273168C5001A1189 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
-		1B050204273168C5001A1189 /* BK_INSTutorialDialogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BK_INSTutorialDialogVC.swift; sourceTree = "<group>"; };
-		1B050205273168C6001A1189 /* BKChooseNonprofitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKChooseNonprofitVC.swift; sourceTree = "<group>"; };
-		1B050206273168C6001A1189 /* BK_INSChooseNonprofitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BK_INSChooseNonprofitVC.swift; sourceTree = "<group>"; };
-		1B0502162731691D001A1189 /* BeamError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeamError.swift; sourceTree = "<group>"; };
-		1B0502172731691D001A1189 /* BKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKManager.swift; sourceTree = "<group>"; };
-		1B0502182731691D001A1189 /* BeamKitUserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeamKitUserAPI.swift; sourceTree = "<group>"; };
-		1B0502192731691D001A1189 /* BeamKitContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeamKitContext.swift; sourceTree = "<group>"; };
-		1B05022127316949001A1189 /* GradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLayer.swift; sourceTree = "<group>"; };
-		1B05022227316949001A1189 /* GradientTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTextView.swift; sourceTree = "<group>"; };
-		1B05022327316949001A1189 /* BK_INSToolTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BK_INSToolTip.swift; sourceTree = "<group>"; };
-		1B05022427316949001A1189 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
-		1B05022527316949001A1189 /* BKGradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKGradientButton.swift; sourceTree = "<group>"; };
-		1B05022627316949001A1189 /* BackArrowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackArrowButton.swift; sourceTree = "<group>"; };
-		1B05022F27316975001A1189 /* BKCommunityImpactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKCommunityImpactCell.swift; sourceTree = "<group>"; };
-		1B05023027316975001A1189 /* BK_INSCumulativeImpactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BK_INSCumulativeImpactView.swift; sourceTree = "<group>"; };
-		1B05023127316975001A1189 /* BKImpactContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKImpactContext.swift; sourceTree = "<group>"; };
-		1B05023227316975001A1189 /* BKFullImpactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKFullImpactVC.swift; sourceTree = "<group>"; };
-		1B05023327316976001A1189 /* TitleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleImageView.swift; sourceTree = "<group>"; };
-		1B05023427316976001A1189 /* BKImpactFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKImpactFlow.swift; sourceTree = "<group>"; };
-		1B05023527316976001A1189 /* BKImpactPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKImpactPageVC.swift; sourceTree = "<group>"; };
-		1B05023627316976001A1189 /* BKImpactSlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKImpactSlideView.swift; sourceTree = "<group>"; };
-		1B05023727316976001A1189 /* ImpactAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactAPI.swift; sourceTree = "<group>"; };
-		1B05023827316976001A1189 /* BkImpactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BkImpactView.swift; sourceTree = "<group>"; };
-		1B05023927316976001A1189 /* BK_INSImpactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BK_INSImpactVC.swift; sourceTree = "<group>"; };
-		1B05023A27316976001A1189 /* BKImpactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKImpactCell.swift; sourceTree = "<group>"; };
-		1B05023B27316976001A1189 /* BK_INSCommunityTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BK_INSCommunityTile.swift; sourceTree = "<group>"; };
-		1B05023C27316976001A1189 /* BKCommunityImpactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKCommunityImpactVC.swift; sourceTree = "<group>"; };
-		1B05023D27316976001A1189 /* BKImpactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKImpactVC.swift; sourceTree = "<group>"; };
-		1B05023E27316976001A1189 /* BK_INSPersonalImpactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BK_INSPersonalImpactView.swift; sourceTree = "<group>"; };
-		1B05023F27316976001A1189 /* BKImpact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKImpact.swift; sourceTree = "<group>"; };
-		1B0502562731699B001A1189 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
-		1B05026D273169D1001A1189 /* ImageNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNetworking.swift; sourceTree = "<group>"; };
-		1B05026E273169D1001A1189 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		1B05026F273169D1001A1189 /* URLConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConvertible.swift; sourceTree = "<group>"; };
-		1B050274273169EB001A1189 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
-		1B050275273169EB001A1189 /* Font+Beam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Beam.swift"; sourceTree = "<group>"; };
-		1B050276273169EB001A1189 /* UIView+Beam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Beam.swift"; sourceTree = "<group>"; };
-		1B050277273169EB001A1189 /* Constraints+Beam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constraints+Beam.swift"; sourceTree = "<group>"; };
-		1B050278273169EB001A1189 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
-		1B050279273169EB001A1189 /* Color+Beam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Beam.swift"; sourceTree = "<group>"; };
-		1B05027A273169EB001A1189 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
 		1B05028627316A93001A1189 /* BeamMedia.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = BeamMedia.xcassets; sourceTree = "<group>"; };
 		1B174E5D27315BF300C8F8B3 /* BeamEnterpriseKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BeamEnterpriseKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1B174E6027315BF300C8F8B3 /* BeamEnterpriseKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BeamEnterpriseKit.h; sourceTree = "<group>"; };
 		1B174E6127315BF300C8F8B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1BB2E793273167820043E50C /* BKChooseNonprofitFlow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BKChooseNonprofitFlow.swift; sourceTree = "<group>"; };
+		1B98254D27322B530043C941 /* BKChooseNonprofitFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKChooseNonprofitFlow.swift; sourceTree = "<group>"; };
+		1B98254E27322B530043C941 /* Log.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
+		1B98255227322C980043C941 /* BK_INSNonprofitButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BK_INSNonprofitButton.swift; sourceTree = "<group>"; };
+		1B98255327322C980043C941 /* NonprofitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonprofitView.swift; sourceTree = "<group>"; };
+		1B98255427322C980043C941 /* BKChooseNonprofitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKChooseNonprofitVC.swift; sourceTree = "<group>"; };
+		1B98255527322C980043C941 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		1B98255627322C990043C941 /* BK_INSTutorialVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BK_INSTutorialVC.swift; sourceTree = "<group>"; };
+		1B98255727322C990043C941 /* BK_INSChooseNonprofitVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BK_INSChooseNonprofitVC.swift; sourceTree = "<group>"; };
+		1B98255827322C990043C941 /* BKTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKTransactionView.swift; sourceTree = "<group>"; };
+		1B98255927322C990043C941 /* TransactionAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionAPI.swift; sourceTree = "<group>"; };
+		1B98255A27322C990043C941 /* BK_INSTutorialDialogVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BK_INSTutorialDialogVC.swift; sourceTree = "<group>"; };
+		1B98255B27322C990043C941 /* BKTransactionContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKTransactionContext.swift; sourceTree = "<group>"; };
+		1B98255C27322C990043C941 /* BKMatchTransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKMatchTransactionView.swift; sourceTree = "<group>"; };
+		1B98255D27322C9A0043C941 /* NonprofitAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NonprofitAPI.swift; sourceTree = "<group>"; };
+		1B98257127322CF00043C941 /* BeamKitUserAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeamKitUserAPI.swift; sourceTree = "<group>"; };
+		1B98257227322CF00043C941 /* BeamError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeamError.swift; sourceTree = "<group>"; };
+		1B98257327322CF00043C941 /* BeamKitContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeamKitContext.swift; sourceTree = "<group>"; };
+		1B98257427322CF00043C941 /* BKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKManager.swift; sourceTree = "<group>"; };
+		1B98257D27322D130043C941 /* GradientLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientLayer.swift; sourceTree = "<group>"; };
+		1B98257E27322D130043C941 /* BackArrowButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackArrowButton.swift; sourceTree = "<group>"; };
+		1B98257F27322D130043C941 /* BK_INSToolTip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BK_INSToolTip.swift; sourceTree = "<group>"; };
+		1B98258027322D130043C941 /* GradientTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTextView.swift; sourceTree = "<group>"; };
+		1B98258127322D130043C941 /* ProgressBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressBar.swift; sourceTree = "<group>"; };
+		1B98258227322D130043C941 /* BKGradientButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKGradientButton.swift; sourceTree = "<group>"; };
+		1B98258B27322D390043C941 /* BK_INSCommunityTile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BK_INSCommunityTile.swift; sourceTree = "<group>"; };
+		1B98258C27322D390043C941 /* BKImpactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKImpactCell.swift; sourceTree = "<group>"; };
+		1B98258D27322D390043C941 /* BKImpactPageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKImpactPageVC.swift; sourceTree = "<group>"; };
+		1B98258E27322D390043C941 /* BK_INSPersonalImpactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BK_INSPersonalImpactView.swift; sourceTree = "<group>"; };
+		1B98258F27322D390043C941 /* BKImpactFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKImpactFlow.swift; sourceTree = "<group>"; };
+		1B98259027322D390043C941 /* BK_INSImpactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BK_INSImpactVC.swift; sourceTree = "<group>"; };
+		1B98259127322D390043C941 /* BK_INSCumulativeImpactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BK_INSCumulativeImpactView.swift; sourceTree = "<group>"; };
+		1B98259227322D3A0043C941 /* BKCommunityImpactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKCommunityImpactCell.swift; sourceTree = "<group>"; };
+		1B98259327322D3A0043C941 /* BkImpactView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BkImpactView.swift; sourceTree = "<group>"; };
+		1B98259427322D3A0043C941 /* BKImpactContext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKImpactContext.swift; sourceTree = "<group>"; };
+		1B98259527322D3A0043C941 /* BKFullImpactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKFullImpactVC.swift; sourceTree = "<group>"; };
+		1B98259627322D3A0043C941 /* BKImpactSlideView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKImpactSlideView.swift; sourceTree = "<group>"; };
+		1B98259727322D3A0043C941 /* BKCommunityImpactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKCommunityImpactVC.swift; sourceTree = "<group>"; };
+		1B98259827322D3A0043C941 /* BKImpactVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKImpactVC.swift; sourceTree = "<group>"; };
+		1B98259927322D3A0043C941 /* ImpactAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImpactAPI.swift; sourceTree = "<group>"; };
+		1B98259A27322D3A0043C941 /* BKImpact.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BKImpact.swift; sourceTree = "<group>"; };
+		1B98259B27322D3A0043C941 /* TitleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleImageView.swift; sourceTree = "<group>"; };
+		1B9825B127322D700043C941 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		1B9825B227322D700043C941 /* ImageNetworking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageNetworking.swift; sourceTree = "<group>"; };
+		1B9825B327322D700043C941 /* URLConvertible.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLConvertible.swift; sourceTree = "<group>"; };
+		1B9825B827322D8E0043C941 /* Constraints+Beam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Constraints+Beam.swift"; sourceTree = "<group>"; };
+		1B9825B927322D8E0043C941 /* Font+Beam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font+Beam.swift"; sourceTree = "<group>"; };
+		1B9825BA27322D8E0043C941 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		1B9825BB27322D8E0043C941 /* Poppins-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Bold.ttf"; sourceTree = "<group>"; };
+		1B9825BC27322D8E0043C941 /* Color+Beam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Beam.swift"; sourceTree = "<group>"; };
+		1B9825BD27322D8E0043C941 /* UIView+Beam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Beam.swift"; sourceTree = "<group>"; };
+		1B9825BE27322D8E0043C941 /* Poppins-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-SemiBold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,84 +131,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1B050214273168FD001A1189 /* Choose Flow */ = {
-			isa = PBXGroup;
-			children = (
-				1B050206273168C6001A1189 /* BK_INSChooseNonprofitVC.swift */,
-				1B0501FE273168C5001A1189 /* BK_INSNonprofitButton.swift */,
-				1B050204273168C5001A1189 /* BK_INSTutorialDialogVC.swift */,
-				1B0501FC273168C5001A1189 /* BK_INSTutorialVC.swift */,
-				1B050205273168C6001A1189 /* BKChooseNonprofitVC.swift */,
-				1B0501FD273168C5001A1189 /* BKMatchTransactionView.swift */,
-				1B0501FB273168C5001A1189 /* BKTransactionContext.swift */,
-				1B0501FF273168C5001A1189 /* BKTransactionView.swift */,
-				1B050200273168C5001A1189 /* NonprofitAPI.swift */,
-				1B050201273168C5001A1189 /* NonprofitView.swift */,
-				1B050203273168C5001A1189 /* Transaction.swift */,
-				1B050202273168C5001A1189 /* TransactionAPI.swift */,
-				1BB2E793273167820043E50C /* BKChooseNonprofitFlow.swift */,
-			);
-			path = "Choose Flow";
-			sourceTree = "<group>";
-		};
-		1B05021F27316929001A1189 /* Admin */ = {
-			isa = PBXGroup;
-			children = (
-				1B05026D273169D1001A1189 /* ImageNetworking.swift */,
-				1B05026E273169D1001A1189 /* Network.swift */,
-				1B05026F273169D1001A1189 /* URLConvertible.swift */,
-				1B0502162731691D001A1189 /* BeamError.swift */,
-				1B0502192731691D001A1189 /* BeamKitContext.swift */,
-				1B0502182731691D001A1189 /* BeamKitUserAPI.swift */,
-				1B0502172731691D001A1189 /* BKManager.swift */,
-			);
-			path = Admin;
-			sourceTree = "<group>";
-		};
-		1B05022E2731695B001A1189 /* UI */ = {
-			isa = PBXGroup;
-			children = (
-				1B050279273169EB001A1189 /* Color+Beam.swift */,
-				1B050277273169EB001A1189 /* Constraints+Beam.swift */,
-				1B050275273169EB001A1189 /* Font+Beam.swift */,
-				1B05027A273169EB001A1189 /* Poppins-Bold.ttf */,
-				1B050278273169EB001A1189 /* Poppins-Regular.ttf */,
-				1B050274273169EB001A1189 /* Poppins-SemiBold.ttf */,
-				1B050276273169EB001A1189 /* UIView+Beam.swift */,
-				1B05022627316949001A1189 /* BackArrowButton.swift */,
-				1B05022327316949001A1189 /* BK_INSToolTip.swift */,
-				1B05022527316949001A1189 /* BKGradientButton.swift */,
-				1B05022127316949001A1189 /* GradientLayer.swift */,
-				1B05022227316949001A1189 /* GradientTextView.swift */,
-				1B05022427316949001A1189 /* ProgressBar.swift */,
-			);
-			path = UI;
-			sourceTree = "<group>";
-		};
-		1B05025427316985001A1189 /* Impact */ = {
-			isa = PBXGroup;
-			children = (
-				1B05023B27316976001A1189 /* BK_INSCommunityTile.swift */,
-				1B05023027316975001A1189 /* BK_INSCumulativeImpactView.swift */,
-				1B05023927316976001A1189 /* BK_INSImpactVC.swift */,
-				1B05023E27316976001A1189 /* BK_INSPersonalImpactView.swift */,
-				1B05022F27316975001A1189 /* BKCommunityImpactCell.swift */,
-				1B05023C27316976001A1189 /* BKCommunityImpactVC.swift */,
-				1B05023227316975001A1189 /* BKFullImpactVC.swift */,
-				1B05023F27316976001A1189 /* BKImpact.swift */,
-				1B05023A27316976001A1189 /* BKImpactCell.swift */,
-				1B05023127316975001A1189 /* BKImpactContext.swift */,
-				1B05023427316976001A1189 /* BKImpactFlow.swift */,
-				1B05023527316976001A1189 /* BKImpactPageVC.swift */,
-				1B05023627316976001A1189 /* BKImpactSlideView.swift */,
-				1B05023D27316976001A1189 /* BKImpactVC.swift */,
-				1B05023827316976001A1189 /* BkImpactView.swift */,
-				1B05023727316976001A1189 /* ImpactAPI.swift */,
-				1B05023327316976001A1189 /* TitleImageView.swift */,
-			);
-			path = Impact;
-			sourceTree = "<group>";
-		};
 		1B174E5327315BF300C8F8B3 = {
 			isa = PBXGroup;
 			children = (
@@ -230,15 +151,93 @@
 		1B174E5F27315BF300C8F8B3 /* BeamEnterpriseKit */ = {
 			isa = PBXGroup;
 			children = (
-				1B0502562731699B001A1189 /* Log.swift */,
-				1B05025427316985001A1189 /* Impact */,
-				1B05022E2731695B001A1189 /* UI */,
-				1B05021F27316929001A1189 /* Admin */,
-				1B050214273168FD001A1189 /* Choose Flow */,
+				1B9825AE27322D4A0043C941 /* Impact */,
+				1B98258A27322D1F0043C941 /* UI */,
+				1B98257C27322CFB0043C941 /* Admin */,
+				1B98256B27322CAA0043C941 /* Choose */,
+				1B98254E27322B530043C941 /* Log.swift */,
 				1B174E6027315BF300C8F8B3 /* BeamEnterpriseKit.h */,
 				1B174E6127315BF300C8F8B3 /* Info.plist */,
 			);
 			path = BeamEnterpriseKit;
+			sourceTree = "<group>";
+		};
+		1B98256B27322CAA0043C941 /* Choose */ = {
+			isa = PBXGroup;
+			children = (
+				1B98255727322C990043C941 /* BK_INSChooseNonprofitVC.swift */,
+				1B98255227322C980043C941 /* BK_INSNonprofitButton.swift */,
+				1B98255A27322C990043C941 /* BK_INSTutorialDialogVC.swift */,
+				1B98255627322C990043C941 /* BK_INSTutorialVC.swift */,
+				1B98255427322C980043C941 /* BKChooseNonprofitVC.swift */,
+				1B98255C27322C990043C941 /* BKMatchTransactionView.swift */,
+				1B98255B27322C990043C941 /* BKTransactionContext.swift */,
+				1B98255827322C990043C941 /* BKTransactionView.swift */,
+				1B98255D27322C9A0043C941 /* NonprofitAPI.swift */,
+				1B98255327322C980043C941 /* NonprofitView.swift */,
+				1B98255527322C980043C941 /* Transaction.swift */,
+				1B98255927322C990043C941 /* TransactionAPI.swift */,
+				1B98254D27322B530043C941 /* BKChooseNonprofitFlow.swift */,
+			);
+			path = Choose;
+			sourceTree = "<group>";
+		};
+		1B98257C27322CFB0043C941 /* Admin */ = {
+			isa = PBXGroup;
+			children = (
+				1B9825B227322D700043C941 /* ImageNetworking.swift */,
+				1B9825B127322D700043C941 /* Network.swift */,
+				1B9825B327322D700043C941 /* URLConvertible.swift */,
+				1B98257227322CF00043C941 /* BeamError.swift */,
+				1B98257327322CF00043C941 /* BeamKitContext.swift */,
+				1B98257127322CF00043C941 /* BeamKitUserAPI.swift */,
+				1B98257427322CF00043C941 /* BKManager.swift */,
+			);
+			path = Admin;
+			sourceTree = "<group>";
+		};
+		1B98258A27322D1F0043C941 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				1B9825BC27322D8E0043C941 /* Color+Beam.swift */,
+				1B9825B827322D8E0043C941 /* Constraints+Beam.swift */,
+				1B9825B927322D8E0043C941 /* Font+Beam.swift */,
+				1B9825BB27322D8E0043C941 /* Poppins-Bold.ttf */,
+				1B9825BA27322D8E0043C941 /* Poppins-Regular.ttf */,
+				1B9825BE27322D8E0043C941 /* Poppins-SemiBold.ttf */,
+				1B9825BD27322D8E0043C941 /* UIView+Beam.swift */,
+				1B98257E27322D130043C941 /* BackArrowButton.swift */,
+				1B98257F27322D130043C941 /* BK_INSToolTip.swift */,
+				1B98258227322D130043C941 /* BKGradientButton.swift */,
+				1B98257D27322D130043C941 /* GradientLayer.swift */,
+				1B98258027322D130043C941 /* GradientTextView.swift */,
+				1B98258127322D130043C941 /* ProgressBar.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		1B9825AE27322D4A0043C941 /* Impact */ = {
+			isa = PBXGroup;
+			children = (
+				1B98258B27322D390043C941 /* BK_INSCommunityTile.swift */,
+				1B98259127322D390043C941 /* BK_INSCumulativeImpactView.swift */,
+				1B98259027322D390043C941 /* BK_INSImpactVC.swift */,
+				1B98258E27322D390043C941 /* BK_INSPersonalImpactView.swift */,
+				1B98259227322D3A0043C941 /* BKCommunityImpactCell.swift */,
+				1B98259727322D3A0043C941 /* BKCommunityImpactVC.swift */,
+				1B98259527322D3A0043C941 /* BKFullImpactVC.swift */,
+				1B98259A27322D3A0043C941 /* BKImpact.swift */,
+				1B98258C27322D390043C941 /* BKImpactCell.swift */,
+				1B98259427322D3A0043C941 /* BKImpactContext.swift */,
+				1B98258F27322D390043C941 /* BKImpactFlow.swift */,
+				1B98258D27322D390043C941 /* BKImpactPageVC.swift */,
+				1B98259627322D3A0043C941 /* BKImpactSlideView.swift */,
+				1B98259827322D3A0043C941 /* BKImpactVC.swift */,
+				1B98259327322D3A0043C941 /* BkImpactView.swift */,
+				1B98259927322D3A0043C941 /* ImpactAPI.swift */,
+				1B98259B27322D3A0043C941 /* TitleImageView.swift */,
+			);
+			path = Impact;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -321,58 +320,57 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1B05027B273169EB001A1189 /* Poppins-SemiBold.ttf in Sources */,
-				1B05027C273169EB001A1189 /* Font+Beam.swift in Sources */,
-				1B05027D273169EB001A1189 /* UIView+Beam.swift in Sources */,
-				1B05027E273169EB001A1189 /* Constraints+Beam.swift in Sources */,
-				1B05027F273169EB001A1189 /* Poppins-Regular.ttf in Sources */,
-				1B050280273169EB001A1189 /* Color+Beam.swift in Sources */,
-				1B050281273169EB001A1189 /* Poppins-Bold.ttf in Sources */,
-				1B050270273169D1001A1189 /* ImageNetworking.swift in Sources */,
-				1B050271273169D1001A1189 /* Network.swift in Sources */,
-				1B050272273169D1001A1189 /* URLConvertible.swift in Sources */,
-				1B0502572731699B001A1189 /* Log.swift in Sources */,
-				1B05024027316977001A1189 /* BKCommunityImpactCell.swift in Sources */,
-				1B05024127316977001A1189 /* BK_INSCumulativeImpactView.swift in Sources */,
-				1B05024227316977001A1189 /* BKImpactContext.swift in Sources */,
-				1B05024327316977001A1189 /* BKFullImpactVC.swift in Sources */,
-				1B05024427316977001A1189 /* TitleImageView.swift in Sources */,
-				1B05024527316977001A1189 /* BKImpactFlow.swift in Sources */,
-				1B05024627316977001A1189 /* BKImpactPageVC.swift in Sources */,
-				1B05024727316977001A1189 /* BKImpactSlideView.swift in Sources */,
-				1B05024827316977001A1189 /* ImpactAPI.swift in Sources */,
-				1B05024927316977001A1189 /* BkImpactView.swift in Sources */,
-				1B05024A27316977001A1189 /* BK_INSImpactVC.swift in Sources */,
-				1B05024B27316977001A1189 /* BKImpactCell.swift in Sources */,
-				1B05024C27316977001A1189 /* BK_INSCommunityTile.swift in Sources */,
-				1B05024D27316977001A1189 /* BKCommunityImpactVC.swift in Sources */,
-				1B05024E27316977001A1189 /* BKImpactVC.swift in Sources */,
-				1B05024F27316977001A1189 /* BK_INSPersonalImpactView.swift in Sources */,
-				1B05025027316977001A1189 /* BKImpact.swift in Sources */,
-				1B05022727316949001A1189 /* GradientLayer.swift in Sources */,
-				1B05022827316949001A1189 /* GradientTextView.swift in Sources */,
-				1B05022927316949001A1189 /* BK_INSToolTip.swift in Sources */,
-				1B05022A27316949001A1189 /* ProgressBar.swift in Sources */,
-				1B05022B27316949001A1189 /* BKGradientButton.swift in Sources */,
-				1B05022C27316949001A1189 /* BackArrowButton.swift in Sources */,
-				1B05021A2731691D001A1189 /* BeamError.swift in Sources */,
-				1B05021B2731691D001A1189 /* BKManager.swift in Sources */,
-				1B05021C2731691D001A1189 /* BeamKitUserAPI.swift in Sources */,
-				1B05021D2731691D001A1189 /* BeamKitContext.swift in Sources */,
-				1B050207273168C6001A1189 /* BKTransactionContext.swift in Sources */,
-				1B050208273168C6001A1189 /* BK_INSTutorialVC.swift in Sources */,
-				1B050209273168C6001A1189 /* BKMatchTransactionView.swift in Sources */,
-				1B05020A273168C6001A1189 /* BK_INSNonprofitButton.swift in Sources */,
-				1B05020B273168C6001A1189 /* BKTransactionView.swift in Sources */,
-				1B05020C273168C6001A1189 /* NonprofitAPI.swift in Sources */,
-				1B05020D273168C6001A1189 /* NonprofitView.swift in Sources */,
-				1B05020E273168C6001A1189 /* TransactionAPI.swift in Sources */,
-				1B05020F273168C6001A1189 /* Transaction.swift in Sources */,
-				1B050210273168C6001A1189 /* BK_INSTutorialDialogVC.swift in Sources */,
-				1B050211273168C6001A1189 /* BKChooseNonprofitVC.swift in Sources */,
-				1B050212273168C6001A1189 /* BK_INSChooseNonprofitVC.swift in Sources */,
-				1BB2E79C273167820043E50C /* BKChooseNonprofitFlow.swift in Sources */,
-				1B6F078727316683002A8DBB /* BeamEnterpriseKit.h in Sources */,
+				1B9825BF27322D8E0043C941 /* Constraints+Beam.swift in Sources */,
+				1B9825C027322D8E0043C941 /* Font+Beam.swift in Sources */,
+				1B9825C127322D8E0043C941 /* Poppins-Regular.ttf in Sources */,
+				1B9825C227322D8E0043C941 /* Poppins-Bold.ttf in Sources */,
+				1B9825C327322D8E0043C941 /* Color+Beam.swift in Sources */,
+				1B9825C427322D8E0043C941 /* UIView+Beam.swift in Sources */,
+				1B9825C527322D8E0043C941 /* Poppins-SemiBold.ttf in Sources */,
+				1B9825B427322D700043C941 /* Network.swift in Sources */,
+				1B9825B527322D700043C941 /* ImageNetworking.swift in Sources */,
+				1B9825B627322D700043C941 /* URLConvertible.swift in Sources */,
+				1B98259C27322D3A0043C941 /* BK_INSCommunityTile.swift in Sources */,
+				1B98259D27322D3A0043C941 /* BKImpactCell.swift in Sources */,
+				1B98259E27322D3A0043C941 /* BKImpactPageVC.swift in Sources */,
+				1B98259F27322D3A0043C941 /* BK_INSPersonalImpactView.swift in Sources */,
+				1B9825A027322D3A0043C941 /* BKImpactFlow.swift in Sources */,
+				1B9825A127322D3A0043C941 /* BK_INSImpactVC.swift in Sources */,
+				1B9825A227322D3A0043C941 /* BK_INSCumulativeImpactView.swift in Sources */,
+				1B9825A327322D3A0043C941 /* BKCommunityImpactCell.swift in Sources */,
+				1B9825A427322D3A0043C941 /* BkImpactView.swift in Sources */,
+				1B9825A527322D3A0043C941 /* BKImpactContext.swift in Sources */,
+				1B9825A627322D3B0043C941 /* BKFullImpactVC.swift in Sources */,
+				1B9825A727322D3B0043C941 /* BKImpactSlideView.swift in Sources */,
+				1B9825A827322D3B0043C941 /* BKCommunityImpactVC.swift in Sources */,
+				1B9825A927322D3B0043C941 /* BKImpactVC.swift in Sources */,
+				1B9825AA27322D3B0043C941 /* ImpactAPI.swift in Sources */,
+				1B9825AB27322D3B0043C941 /* BKImpact.swift in Sources */,
+				1B9825AC27322D3B0043C941 /* TitleImageView.swift in Sources */,
+				1B98258327322D140043C941 /* GradientLayer.swift in Sources */,
+				1B98258427322D140043C941 /* BackArrowButton.swift in Sources */,
+				1B98258527322D140043C941 /* BK_INSToolTip.swift in Sources */,
+				1B98258627322D140043C941 /* GradientTextView.swift in Sources */,
+				1B98258727322D140043C941 /* ProgressBar.swift in Sources */,
+				1B98258827322D140043C941 /* BKGradientButton.swift in Sources */,
+				1B98257527322CF00043C941 /* BeamKitUserAPI.swift in Sources */,
+				1B98257627322CF00043C941 /* BeamError.swift in Sources */,
+				1B98257727322CF00043C941 /* BeamKitContext.swift in Sources */,
+				1B98257827322CF00043C941 /* BKManager.swift in Sources */,
+				1B98255E27322C9A0043C941 /* BK_INSNonprofitButton.swift in Sources */,
+				1B98255F27322C9A0043C941 /* NonprofitView.swift in Sources */,
+				1B98256027322C9A0043C941 /* BKChooseNonprofitVC.swift in Sources */,
+				1B98256127322C9A0043C941 /* Transaction.swift in Sources */,
+				1B98256227322C9A0043C941 /* BK_INSTutorialVC.swift in Sources */,
+				1B98256327322C9A0043C941 /* BK_INSChooseNonprofitVC.swift in Sources */,
+				1B98256427322C9A0043C941 /* BKTransactionView.swift in Sources */,
+				1B98256527322C9A0043C941 /* TransactionAPI.swift in Sources */,
+				1B98256627322C9A0043C941 /* BK_INSTutorialDialogVC.swift in Sources */,
+				1B98256727322C9A0043C941 /* BKTransactionContext.swift in Sources */,
+				1B98256827322C9A0043C941 /* BKMatchTransactionView.swift in Sources */,
+				1B98256927322C9A0043C941 /* NonprofitAPI.swift in Sources */,
+				1B98254F27322B530043C941 /* BKChooseNonprofitFlow.swift in Sources */,
+				1B98255027322B530043C941 /* Log.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -504,6 +502,7 @@
 		1B174E6627315BF300C8F8B3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -532,6 +531,7 @@
 		1B174E6727315BF300C8F8B3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;

@@ -473,3 +473,5 @@ extension BKImpactView {
         loadImpact(forceReload: true)
     }
 }
+
+
