@@ -143,21 +143,6 @@ class BKJustCommunityImpactVC: UIViewController {
     
     let navBar: BKNavBarView = .init(frame: .zero)
 
-//    let navBar: UIView = .init(frame: .zero)
-//
-//    let beamLogoImageView: UIImageView = {
-//        let view = UIImageView(frame: .zero)
-//        view.backgroundColor = .clear
-//        view.contentMode = .scaleAspectFit
-//        view.clipsToBounds = true
-//        let bundle = BeamKitContext.shared.bundle
-//        let image = UIImage(named: "bkLogo", in: bundle, compatibleWith: nil)
-//        view.image = image
-//        return view
-//    }()
-//
-//    let backArrow: BackArrowButton = .init(frame: .zero)
-//
    let carousel: BKCommunityImpactVC
     
     init(context: BKImpactContext,

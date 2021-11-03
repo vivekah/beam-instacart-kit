@@ -59,11 +59,6 @@ class BeamKitUserAPI {
         }
 
         let successHandler: (JSON?) -> Void = {  userJSON in
-//            guard let userID = userJSON?["user"] as? String else {
-//                BKLog.error("Register User: invalid response")
-//                completion?(nil, .invalidConfiguration)
-//                return
-//            }
             
             BKLog.debug("Beam Registered User with id \(String(describing: id))")
             completion?(id, .none)

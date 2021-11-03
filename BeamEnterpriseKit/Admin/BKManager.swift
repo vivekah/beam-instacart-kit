@@ -81,17 +81,6 @@ extension BKManager {
         }
     }
     
-    
-    public func register(_ completion: ((BeamError) -> Void)? = nil) {
-
-        BeamKitContext.shared.register(completion)
-    }
-
-    public func webRegister(_ completion: ((BeamError) -> Void)? = nil) {
-
-        BeamKitContext.shared.register(with: "partnerUserIdSnez1", completion)
-    }
-    
     public func cancelTransaction(id: Int,
                                   _ completion: ((BeamError) -> Void)? = nil) {
         BeamKitContext.shared.chooseContext.cancelTransaction(id: id, completion)

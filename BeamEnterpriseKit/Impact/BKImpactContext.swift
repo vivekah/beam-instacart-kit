@@ -83,7 +83,6 @@ class BKImpactContext {
                 let impact = impact else {
                     return
             }
-            BKLog.info("impact \(impact)")
             self.instacartImpact = impact
         }
     }

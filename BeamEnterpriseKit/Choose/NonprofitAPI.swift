@@ -13,13 +13,12 @@ class NonprofitAPI {
                              _ completion: ((BKStoreNonprofitsModel?, Bool, BeamError) -> Void)? = nil) {
                 
         let successHandler: (JSON?) -> Void = {  nonprofitJSON in
-            BKLog.info("Did Retrieve Nonprofits for store \(storeID)")
-            BKLog.info("Nonprofit JSON \(String(describing: nonprofitJSON))")
             guard let json = nonprofitJSON,
                 let model = parseStoreNonprofitJSON(json, for: storeID) else {
                     completion?(nil, false, .invalidConfiguration)
                     return
             }
+            BKLog.info("Did retrieve nonprofits")
             let match = json["user_can_match"] as? Bool ?? false
             completion?(model, match, .none)
         }
@@ -200,7 +199,6 @@ class NonprofitAPI {
             completion?(nil, .invalidUser)
             return
         }
-        BeamKitContext.shared.token = "Fez0xn9XFhur.4c90bd46-40f4-4cd7-a755-4800ea5ad1e3"
         let body: JSON  = ["partner_user_id": userID ?? user,
                            "cart_total": "123",
                            "store_id": "13"]
@@ -211,14 +209,12 @@ class NonprofitAPI {
                 completion?(nil, .invalidConfiguration)
                 return
             }
-            BeamKitContext.shared.token = "MCT5KmLZUJCf.aecf3e1a-c091-481a-89bc-ae9384b3639c"
             BKLog.debug("Beam Registered Transaction with id \(transactionID)")
             completion?(transactionID, .none)
         }
         
         let errorHandler: (ErrorType) -> Void = { error in
             BKLog.error("Register Transaction Error")
-            BeamKitContext.shared.token = "MCT5KmLZUJCf.aecf3e1a-c091-481a-89bc-ae9384b3639c"
             completion?(nil, .networkError)
         }
         
