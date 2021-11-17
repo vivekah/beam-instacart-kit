@@ -35,6 +35,7 @@ internal class BK_INSNonprofitButton: UIButton {
         label.backgroundColor = .clear
         label.adjustsFontSizeToFitWidth = true
    //     label.minimumScaleFactor = 0
+        label.lineBreakMode = .byWordWrapping
         label.textColor = .instacartTitleGrey
         return label
     }()

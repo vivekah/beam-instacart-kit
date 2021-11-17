@@ -54,10 +54,13 @@ class BK_INSImpact {
     let nonprofits: [BKNonprofit]
     let copy: BK_INSCopy
     var personalImpactImage: String? = ""
+    let favoriteName: String?
     
     init(copy: BK_INSCopy,
-         nonprofits: [BKNonprofit]) {
+         nonprofits: [BKNonprofit],
+         name: String?) {
         self.nonprofits = nonprofits
-        self.copy = copy 
+        self.copy = copy
+        self.favoriteName = name
     }
 }

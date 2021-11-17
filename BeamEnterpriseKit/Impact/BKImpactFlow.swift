@@ -58,7 +58,11 @@ public class BKImpactFlow {
         context.loadInstacartImpact(zip: zip ?? "")
 
         let impact = BK_INSImpactVC(context: context, flow: self, delegate: delegate)
-        viewController.present(impact, animated: true, completion: nil)
+        if let vc = viewController as? UINavigationController {
+            vc.pushViewController(impact, animated: true)
+        } else {
+            viewController.present(impact, animated: true, completion: nil)
+        }
     }
     
 }

@@ -33,6 +33,8 @@ class BKImpactContext {
             NotificationCenter.default.post(name: ._bkDidUpdateCommunityImpact, object: nil)
         }
     }
+    
+    var instacartCopy: BK_INSImpact? = nil
 
     var numberOfNonprofits: Int {
         return self.impact?.nonprofits.count ?? 0
@@ -84,6 +86,19 @@ class BKImpactContext {
                     return
             }
             self.instacartImpact = impact
+        }
+    }
+    
+    func loadPersonalInstacartImpact(userID: String, _ completion: ((BK_INSImpact?, BeamError) -> Void)? = nil) {
+        api.getPersonalInstacartImpact(user: userID) { impact, error in
+            guard error == BeamError.none,
+                let impact = impact else {
+                    completion?(nil, error)
+                    return
+            }
+            BKLog.info("impact \(impact)")
+            self.instacartCopy = impact
+            completion?(impact, error)
         }
     }
 }

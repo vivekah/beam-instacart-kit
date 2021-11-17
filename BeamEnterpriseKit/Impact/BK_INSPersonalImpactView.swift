@@ -7,9 +7,12 @@
 
 import UIKit
 
+public protocol BK_INSPersonalImpactDelegate: class {
+    func didSelectButton(with favorite: String?)
+}
+
 public class BK_INSPersonalImpactView: UIView {
-    weak var delegate: BK_INSImpactVCDelegate?
-    var scrollToResults: (() -> Void)? = nil
+    weak var delegate: BK_INSPersonalImpactDelegate?
     
     let nonprofitImage: UIImageView = {
         let view = UIImageView(frame: .zero)
@@ -29,6 +32,7 @@ public class BK_INSPersonalImpactView: UIView {
         label.backgroundColor = .clear
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 1
+        label.lineBreakMode = .byWordWrapping
         //label.text = "Join us in the fight against food insecurity"
         label.textColor = .instacartTitleGrey
         label.font = .beamBold(size: 18)
@@ -43,6 +47,7 @@ public class BK_INSPersonalImpactView: UIView {
         label.backgroundColor = .clear
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 1
+        label.lineBreakMode = .byWordWrapping
        // label.text = "Fund meals this holiday season by simply placing your order."
         label.textColor = .instacartTitleGrey
         return label
@@ -73,9 +78,15 @@ public class BK_INSPersonalImpactView: UIView {
         return button
     }()
     
+    var progressHeight: NSLayoutConstraint? = nil
+    
     public override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
+    }
+    
+    var context: BKImpactContext {
+        return BeamKitContext.shared.impactContext
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -113,6 +124,7 @@ public class BK_INSPersonalImpactView: UIView {
         
         progressBar.isHidden = numerator == 0
         percentageLabel.isHidden = numerator == 0
+        progressHeight?.constant = numerator == 0 ? 0 : 6
         
         if let image = impact.personalImpactImage,
            let imageURL = URL(string: image) {
@@ -134,8 +146,17 @@ public class BK_INSPersonalImpactView: UIView {
             let attributedString = NSAttributedString(string: sub, attributes: [NSAttributedString.Key.paragraphStyle: style])
             self.subLabel.attributedText = attributedString
         }
-        
-        
+        setNeedsLayout()
+    }
+    
+    public
+    func configure(with userID: String) {
+        context.loadPersonalInstacartImpact(userID: userID) { impact, error in
+            DispatchQueue.main.async {
+                self.configure(with: impact)
+            }
+            
+        }
     }
     
     func setupConstraints() {
@@ -145,20 +166,29 @@ public class BK_INSPersonalImpactView: UIView {
                             "bar": progressBar,
                             "per": percentageLabel,
                             "cta": ctaButton]
-        
+    
         let formats: [String] = ["H:|-16-[image(50)]-16-[title]-16-|",
                                  "V:|-[image(50)]",
                                  "V:|-[title]-[sub]-[bar(6)]-[cta]-|",
                                  "H:|-82-[sub]-16-|",
                                  "H:|-82-[bar]-[per(30)]-16-|",
                                  "H:|-82-[cta]-16-|",
+                                 ]
 
-        ]
         var constraints = NSLayoutConstraint.constraints(withFormats: formats,
                                                          options: [],
                                                          metrics: nil,
                                                          views: views)
-        constraints += [NSLayoutConstraint.init(item: percentageLabel,
+        progressHeight = NSLayoutConstraint(item: progressBar,
+                                            attribute: .height,
+                                            relatedBy: .equal,
+                                            toItem: nil,
+                                            attribute: .notAnAttribute,
+                                            multiplier: 1.0,
+                                            constant: 6.0)
+        
+        constraints += [progressHeight!,
+                        NSLayoutConstraint.init(item: percentageLabel,
                                                 attribute: .centerY,
                                                 relatedBy: .equal,
                                                 toItem: progressBar,
@@ -174,15 +204,13 @@ public class BK_INSPersonalImpactView: UIView {
                                                 constant: 0)]
     
         NSLayoutConstraint.activate(constraints)
+
     }
     
     @objc
     func didPressButton() {
-        if progressBar.isHidden {
-            delegate?.didRequestToSelectNonprofit()
-        } else {
-            scrollToResults?()
-        }
+        let name = context.instacartCopy?.favoriteName
+        delegate?.didSelectButton(with: name)
     }
     
 }

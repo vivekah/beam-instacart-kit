@@ -34,6 +34,7 @@ class BK_INSImpactVC: UIViewController {
         label.backgroundColor = .clear
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 1
+        label.lineBreakMode = .byWordWrapping
         label.textColor = .instacartTitleGrey
         label.text = "Help us fight food insecurity"
         label.font = .beamBold(size: 31)
@@ -48,6 +49,7 @@ class BK_INSImpactVC: UIViewController {
         label.backgroundColor = .clear
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 1
+        label.lineBreakMode = .byWordWrapping
         label.textColor = .instacartDescriptionGrey
         label.text = "This holiday season, Instacart has partnered with 4 non-profits in support of our mission to create a world where everyone has access to the food they love and more time to enjoy it together."
         return label
@@ -168,8 +170,7 @@ class BK_INSImpactVC: UIViewController {
         contentView.addSubview(tutorial.view.usingConstraints())
         tutorial.didMove(toParent: self)
         cumulative.delegate = delegate
-        personal.delegate = delegate
-        personal.scrollToResults = scrollToResults
+        personal.delegate = self
         learnMoreLabel.addTarget(self, action: #selector(showComplianceView), for: .touchUpInside)
         setupConstraints()
     }
@@ -343,4 +344,16 @@ extension BK_INSImpactVC {
             }
         }
     }
+}
+
+
+extension BK_INSImpactVC: BK_INSPersonalImpactDelegate {
+    func didSelectButton(with favorite: String?) {
+        if favorite != nil {
+            scrollToResults()
+        } else {
+            delegate?.didRequestToSelectNonprofit()
+        }
+    }
+
 }

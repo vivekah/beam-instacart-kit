@@ -53,6 +53,7 @@ public class BK_INSCommunityTile: UIView {
         label.backgroundColor = .clear
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.8
+        label.lineBreakMode = .byWordWrapping
         label.text = "Fund 10,000 meals to nourish communities impacted by Hurricane Ida"
         label.textColor = .instacartTitleGrey
         return label

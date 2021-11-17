@@ -18,6 +18,7 @@ public class BK_INSCumulativeImpactView: UIView {
         label.backgroundColor = .clear
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 1
+        label.lineBreakMode = .byWordWrapping
         label.text = "Together we’ve funded 27,571 meals nationwide"
         label.textColor = .instacartTitleGrey
         label.font = .beamBold(size: 23)
@@ -32,6 +33,7 @@ public class BK_INSCumulativeImpactView: UIView {
         label.backgroundColor = .clear
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 1
+        label.lineBreakMode = .byWordWrapping
         label.text = "We’ve partnered with hundreds of local and national charities. "
         label.textColor = .instacartDescriptionGrey
         return label

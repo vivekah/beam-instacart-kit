@@ -271,6 +271,7 @@ class BK_INSVisitHeaderView: UIView {
         label.backgroundColor = .clear
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 0.6
+        label.lineBreakMode = .byWordWrapping
         label.textColor = .instacartTitleGrey
         return label
     }()
