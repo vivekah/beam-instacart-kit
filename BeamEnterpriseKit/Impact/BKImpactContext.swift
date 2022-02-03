@@ -79,13 +79,15 @@ class BKImpactContext {
         instacartImpact = nil
     }
     
-    func loadInstacartImpact(zip: String = "") {
+    func loadInstacartImpact(zip: String = "", _ completion: ((BeamError) -> Void)? = nil) {
         api.getInstacartImpact(zip: zip) { impact, error in
             guard error == BeamError.none,
                 let impact = impact else {
+                    completion?(error)
                     return
             }
             self.instacartImpact = impact
+            completion?(.none)
         }
     }
     

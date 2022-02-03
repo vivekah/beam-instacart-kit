@@ -9,7 +9,7 @@
 //import Alamofire
 import UIKit
 
-@objc public protocol AFImageCacheProtocol: class{
+@objc public protocol AFImageCacheProtocol: AnyObject {
     func cachedImageForRequest(_ request:URLRequest) -> UIImage?
     func cacheImage(_ image:UIImage, forRequest request:URLRequest);
 }

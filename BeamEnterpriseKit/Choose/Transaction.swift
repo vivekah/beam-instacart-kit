@@ -96,6 +96,7 @@ class BKStoreNonprofitsModel: NSObject {
     var cta: String?
     var complianceCTA: String?
     var complianceDescription: String?
+    var instacartDisclosure: String?
 }
 
 class BKTransaction: NSObject {

@@ -210,10 +210,13 @@ public class BK_INSTutorialSlideVC: UIViewController {
         if let sub = slide.subtitle {
             self.subLabel.text = sub
             let style = NSMutableParagraphStyle()
-            style.lineHeightMultiple = 1.23
             style.alignment = .center
-            let attributedString = NSAttributedString(string: sub, attributes: [NSAttributedString.Key.paragraphStyle: style])
-            self.subLabel.attributedText = attributedString
+            if let attrString = sub.bkhtmlAttributedString(with: 18)?.mutableCopy() as? NSMutableAttributedString {
+                let nsstring = NSString(string: attrString.string)
+                let range = NSMakeRange(0, nsstring.length)
+                attrString.addAttribute(.paragraphStyle, value: style, range: range)
+                self.subLabel.attributedText = attrString
+            }
         }
         
         if let title = slide.title {
@@ -240,13 +243,13 @@ public class BK_INSTutorialSlideVC: UIViewController {
                             "sub": subLabel,
                             "img": nonprofitImage]
         
-        let formats: [String] = ["V:|[img(tutorial)]-[title]-[sub]->=1-|",
+        let formats: [String] = ["V:|[img(tutorial)]-32-[title]-[sub]->=1-|",
                                  "H:|-20-[sub]-20-|",
                                  "H:|-16-[title]-16-|",
                                  "H:|-16-[img]-16-|",
 
         ]
-        let tutorialHeight = UIDevice.current.hasNotch || UIDevice.current.isPlus ? 220 : 160
+        let tutorialHeight = UIDevice.current.hasNotch || UIDevice.current.isPlus ? 257 : 200
         let metrics: [String: Int] = ["tutorial": tutorialHeight]
         let constraints = NSLayoutConstraint.constraints(withFormats: formats,
                                                          options: [],

@@ -35,11 +35,13 @@ class BK_INSCopy {
     var impactCTA: String? 
     var complianceCTA: String?
     var complianceDescription: String?
-    
+    var instacartDisclosure: String?
+
     var personalImpactTitle: String?
     var personalImpactDescription: String?
     var personalImpactCTA: String?
     var personalImpactAmt: Int = 0
+    var personalImpactHTMLCTA: String?
 
     var cummulativeImpactTitle: String?
     var cummulativeImpactDescription: String?
@@ -54,13 +56,16 @@ class BK_INSImpact {
     let nonprofits: [BKNonprofit]
     let copy: BK_INSCopy
     var personalImpactImage: String? = ""
+    let favoriteID: Int?
     let favoriteName: String?
     
     init(copy: BK_INSCopy,
          nonprofits: [BKNonprofit],
+         favorite: Int?,
          name: String?) {
         self.nonprofits = nonprofits
         self.copy = copy
+        self.favoriteID = favorite
         self.favoriteName = name
     }
 }

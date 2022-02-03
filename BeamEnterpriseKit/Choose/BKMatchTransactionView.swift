@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol BKMatchTransactionViewDelegate: class {
+protocol BKMatchTransactionViewDelegate: AnyObject {
     func didToggleMatch(on: Bool)
 }
 

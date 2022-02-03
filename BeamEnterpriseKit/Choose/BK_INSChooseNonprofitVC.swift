@@ -7,9 +7,9 @@
 
 import UIKit
 
-public protocol BK_INSChooseNonprofitVCDelegate: class {
-    func didDismiss()
-    
+public protocol BK_INSChooseNonprofitVCDelegate: AnyObject {
+    func didDismiss(with nonprofit: (Int, String)?)
+
     func didRequestToLearnMore()
 }
 
@@ -35,6 +35,18 @@ public class BK_INSChooseNonprofitVC: UIViewController {
     let placeholder: UIView = .init(frame: .zero)
     var complianceView: BK_INSToolTip?
 
+    let disclosureLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.beamRegular(size: 12)
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        label.backgroundColor = .clear
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.8
+        label.textColor = .instacartTitleGrey
+        return label
+    }()
+    
     init(with transaction: BKTransaction) {
         self.transaction = transaction
         header = BK_INSVisitHeaderView(with: transaction)
@@ -65,6 +77,7 @@ public class BK_INSChooseNonprofitVC: UIViewController {
         contentView.addSubview(third.usingConstraints())
         contentView.addSubview(fourth.usingConstraints())
         contentView.addSubview(placeholder.usingConstraints())
+        contentView.addSubview(disclosureLabel.usingConstraints())
         placeholder.backgroundColor = .white
         view.addSubview(footer.usingConstraints())
         if let cta = transaction.storeNon.cta {
@@ -74,8 +87,9 @@ public class BK_INSChooseNonprofitVC: UIViewController {
         addTargets()
         setupConstraints()
         
-        header.showComplianceView = showComplianceView
+        header.delegate = self
         header.descriptionLabel.addTarget(self, action: #selector(didSelectSubhead), for: .touchUpInside)
+        disclosureLabel.text = transaction.storeNon.instacartDisclosure ?? "Offer applies to all orders placed between 11/30/21 12:00 AM PST and 12/8/21 12:00 AM PST. The cost of a meal varies by nonprofit. The nonprofit you choose will receive at least $1 for every 10 meals donated. You must choose a nonprofit before placing your order. Your chosen nonprofit will be your default for all orders during offer period. Does not apply to orders that are canceled or fully refunded."
     }
     
     func configureNonprofits() {
@@ -125,6 +139,7 @@ public class BK_INSChooseNonprofitVC: UIViewController {
                             "third": third,
                             "fourth": fourth,
                             "buffer": placeholder,
+                            "disclosure": disclosureLabel,
                             "footer": footer]
         
         var formats: [String] = ["V:|[scroll]|",
@@ -134,6 +149,7 @@ public class BK_INSChooseNonprofitVC: UIViewController {
                                  "H:|[header]|",
                                  "H:|[footer]|",
                                  "V:[footer]|",
+                                 "H:|-16-[disclosure]-16-|",
                                  "H:|-16-[buffer]-16-|",
                                  "H:|-16-[first]-16-|",
                                  "H:|-16-[second]-16-|",
@@ -148,15 +164,15 @@ public class BK_INSChooseNonprofitVC: UIViewController {
                        "height": 150]
         
         if showFourth {
-            formats.append("V:|-top-[header]-12-[first(height)]-8-[second(height)]-8-[third(height)]-8-[fourth(height)][buffer(100)]|")
+            formats.append("V:|[header]-12-[first(height)]-8-[second(height)]-8-[third(height)]-8-[fourth(height)]-16-[disclosure][buffer(90)]|")
         } else {
-            formats.append("V:|-top-[header]-12-[first(height)]-8-[second(height)]-8-[third(height)][buffer(100)]|")
+            formats.append("V:|[header]-12-[first]-8-[second]-8-[third]-16-[disclosure][buffer(90)]|")
         }
         
         var constraints: Constraints = NSLayoutConstraint.constraints(withFormats: formats,
                                                                       metrics: metrics,
                                                                       views: views)
-        let buttonHeight = UIDevice.current.hasNotch ? 80 : UIDevice.current.isPlus ? 54 : 40
+        let buttonHeight = UIDevice.current.hasNotch ? 80 : 56
 
         let height = NSLayoutConstraint(item: contentView,
                                         attribute: .height,
@@ -189,7 +205,7 @@ public class BK_INSChooseNonprofitVC: UIViewController {
     
 }
 
-extension BK_INSChooseNonprofitVC {
+extension BK_INSChooseNonprofitVC: BK_INSVisitHeaderViewDelegate {
     
     func addTargets() {
          header.backButton.addTarget(self,
@@ -253,8 +269,14 @@ extension BK_INSChooseNonprofitVC: BK_INSNonprofitButtonDelegate {
         flow.favorite(nonprofit: nonprofit, from: self) {
             BeamKitContext.shared.saveNonprofit(id: nonprofit.id)
             BeamKitContext.shared.saveNonprofit(name: nonprofit.name)
+            self.delegate?.didDismiss(with: (nonprofit.id, nonprofit.name))
         }
     }
+}
+
+
+protocol BK_INSVisitHeaderViewDelegate: AnyObject {
+    func showComplianceView()
 }
 
 class BK_INSVisitHeaderView: UIView {
@@ -276,15 +298,16 @@ class BK_INSVisitHeaderView: UIView {
         return label
     }()
     
-    let descriptionLabel: UIButton = {
-        let label = UIButton(frame: .zero)
+    let descriptionLabel: BK_INSButton = {
+        let label = BK_INSButton(frame: .zero)
         label.titleLabel?.font = .beamRegular(size: 30)
         label.backgroundColor = .clear
         label.titleLabel?.textColor = .instacartDescriptionGrey
         label.titleLabel?.lineBreakMode = .byWordWrapping
-        label.titleLabel?.numberOfLines = 3
+        label.titleLabel?.numberOfLines = 4
         label.titleLabel?.textAlignment = .left
         label.contentHorizontalAlignment = .left
+        label.setTitle("Just choose a nonprofit and each time you order through 12/7, 1 meal will be donated to them at no extra cost to you. See impact", for: .normal)
         return label
     }()
     
@@ -317,7 +340,7 @@ class BK_INSVisitHeaderView: UIView {
         return label
     }()
     
-    var showComplianceView: (() -> Void)? = nil
+    weak var delegate: BK_INSVisitHeaderViewDelegate?
     
     init(with transaction: BKTransaction) {
         self.transaction = transaction
@@ -343,27 +366,16 @@ class BK_INSVisitHeaderView: UIView {
         
         let sub = transaction.storeNon.subtitle
         descriptionLabel.setTitle(sub, for: .normal)
-        descriptionLabel.sizeToFit()
 
-        
-        let style = NSMutableParagraphStyle()
-        style.lineHeightMultiple = 1.25
-        
         if let sub = sub,
-           let attrString = sub.bkhtmlAttributedString(with: 15)?.mutableCopy() as? NSMutableAttributedString {
-            let nsstring = NSString(string: attrString.string)
-            let range = NSMakeRange(0, nsstring.length)
-            attrString.addAttribute(.paragraphStyle, value: style, range: range)
+           let attrString = sub.bkhtmlAttributedString(with: 15) {
             descriptionLabel.setAttributedTitle(attrString, for: .normal)
         }
         
         if let title = transaction.storeNon.title  {
             titleLabel.text = title
-            let newstyle = NSMutableParagraphStyle()
-            newstyle.lineHeightMultiple = 1.1
-            let attributedString = NSAttributedString(string: title, attributes: [NSAttributedString.Key.paragraphStyle: newstyle])
-            titleLabel.attributedText = attributedString
         }
+        setNeedsLayout()
     }
 
     
@@ -378,7 +390,7 @@ class BK_INSVisitHeaderView: UIView {
                                       "top": insets.top,
                                       "pad": 5]
         
-        let formats: [String] = ["V:|-5-[title]-[desc(70)]-10-[poweredBy]|",
+        let formats: [String] = ["V:|-5-[title]-[desc]-10-[poweredBy]|",
                                  "V:[desc]-10-[learnMore]|",
                                  "H:|-16-[learnMore(100)]->=7-[poweredBy(150)]-16-|",
                                  "H:|-16-[title]-16-|",
@@ -405,9 +417,8 @@ class BK_INSVisitHeaderView: UIView {
 extension BK_INSVisitHeaderView {
     @objc
     func didTapLearnMore() {
-        showComplianceView?()
+        delegate?.showComplianceView()
     }
-
 }
 
 
@@ -472,3 +483,15 @@ class BK_INSVisitFooterView: UIView {
     }
 }
 
+class BK_INSButton: UIButton {
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        titleLabel?.preferredMaxLayoutWidth = self.titleLabel!.frame.size.width - 32
+    }
+    
+    override var intrinsicContentSize: CGSize {
+        let size = self.titleLabel!.intrinsicContentSize
+        return CGSize(width: size.width + contentEdgeInsets.left + contentEdgeInsets.right, height: size.height + contentEdgeInsets.top + contentEdgeInsets.bottom)
+    }
+}

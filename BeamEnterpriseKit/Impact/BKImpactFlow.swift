@@ -65,6 +65,16 @@ public class BKImpactFlow {
         }
     }
     
+    
+    public func prepareInstacartImpactView(with delegate: BK_INSImpactVCDelegate? = nil) -> UIViewController {
+        context.loadInstacartImpact(zip: zip ?? "")
+        return BK_INSImpactVC(context: context, flow: self, delegate: delegate)
+    }
+    
+    public func prepareInstacartImpact(_ completion: ((BeamError) -> Void)? = nil) {
+        context.loadInstacartImpact(zip: zip ?? "", completion)
+    }
+    
 }
 
 // Page Controls

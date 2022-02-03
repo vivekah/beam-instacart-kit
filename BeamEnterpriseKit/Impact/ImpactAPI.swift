@@ -162,7 +162,18 @@ extension ImpactAPI {
             return
         }
         
-        Network.shared.get(urlPath: "users/impact/instacart?zip_code=\(zip)&user=\(userID)&lan=\(language)",
+        var country = "CA"
+        if zip.isNumeric {
+            country = "US"
+        }
+        
+        let urlzip = zip.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+
+        guard let urlzip = urlzip else {
+            return
+        }
+
+        Network.shared.get(urlPath: "users/impact/instacart?country_code=\(country)&zip_code=\(urlzip)&user=\(userID)&lan=\(language)",
         successJSONHandler: successHandler,
         errorHandler: errorHandler)
     }
@@ -187,10 +198,6 @@ extension ImpactAPI {
             completion?(nil, .networkError)
         }
         
-        guard let userID = BeamKitContext.shared.getUserID() else {
-            completion?(nil, .invalidUser)
-            return
-        }
         
         Network.shared.get(urlPath: "users/personal/instacart?user=\(user)&lan=\(language)",
         successJSONHandler: successHandler,
@@ -201,12 +208,14 @@ extension ImpactAPI {
         let parsedCopy = parse(copy: json)
         
         var nonprofits: [BKNonprofit] = .init()
+        let favorite = json["favorite_nonprofit"] as? Int
         let favoriteName = json["favorite_nonprofit"] as? String
         
         if let nonprofitJSON = json["community_impact"] as? [JSON] {
             for non in nonprofitJSON  {
                 let parsed_nonprofit = NonprofitAPI.parseNonprofitJSON(non)
-                if parsed_nonprofit.name == favoriteName {
+                if let favorite = favorite,
+                    parsed_nonprofit.id == favorite {
                     parsed_nonprofit.isFavorite = true
                     nonprofits.insert(parsed_nonprofit, at: 0)
                 } else {
@@ -214,9 +223,8 @@ extension ImpactAPI {
                 }
             }
         }
-        
 
-        return BK_INSImpact(copy: parsedCopy, nonprofits: nonprofits, name: favoriteName)
+        return BK_INSImpact(copy: parsedCopy, nonprofits: nonprofits, favorite: favorite, name: favoriteName)
     }
     
     private class func parse(copy json: JSON) -> BK_INSCopy {
@@ -227,11 +235,13 @@ extension ImpactAPI {
         copy.complianceCTA = copyJSON["complianceCtaMobile"] as? String
         copy.complianceDescription = copyJSON["complianceDescriptionMobile"] as? String
         copy.impactCTA = copyJSON["impactCtaMobile"] as? String
-        
+        copy.instacartDisclosure = copyJSON["instacart_disclosure"] as? String
+
         copy.personalImpactCTA = json["personal_impact_cta"] as? String
         copy.personalImpactTitle = json["personal_impact_header"] as? String
         copy.personalImpactDescription = json["personal_impact_description"] as? String
         copy.personalImpactAmt = json["personal_impact"] as? Int ?? json["percentage"] as? Int ?? 0
+        copy.personalImpactHTMLCTA = json["personal_impact_completion"] as? String
 
         copy.cummulativeImpactCTA = json["cummulative_impact_cta"] as? String
         copy.cummulativeImpactDescription = json["cummulative_impact_description"] as? String

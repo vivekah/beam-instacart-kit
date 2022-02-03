@@ -31,7 +31,7 @@ internal class BK_INSNonprofitButton: UIButton {
         let label = UILabel(frame: .zero)
         label.font = UIDevice.current.is5or4Phone ? UIFont.beamBold(size: 20) : UIFont.beamBold(size: 18)
         label.textAlignment = .left
-        label.numberOfLines = 2
+        label.numberOfLines = 0
         label.backgroundColor = .clear
         label.adjustsFontSizeToFitWidth = true
    //     label.minimumScaleFactor = 0
@@ -136,16 +136,10 @@ internal class BK_INSNonprofitButton: UIButton {
         // info text
         let goal = nonprofit.impactDescription
         infoTextLabelView.text = goal
-        let style = NSMutableParagraphStyle()
-        style.lineHeightMultiple = 1.25
-        let attributedString = NSAttributedString(string: goal, attributes: [NSAttributedString.Key.paragraphStyle: style])
-        infoTextLabelView.attributedText = attributedString
         
         // name label
         let name = nonprofit.name
         nameLabel.text = name
-        let attributedNameString = NSAttributedString(string: name, attributes: [NSAttributedString.Key.paragraphStyle: style])
-        nameLabel.attributedText = attributedNameString
     }
     
     func setup() {
@@ -182,11 +176,11 @@ internal class BK_INSNonprofitButton: UIButton {
                                  "H:|-[bar]-[per(35)]-15-|",
                                  "H:|[select]|",
                                  "V:|[select]|",
-                                 "V:|-[image(78)]-[desc]-[bar(6)]-10-|",
-                                 "V:[region]-2-[name]-4-[cause]"]
+                                 "V:|-[image(78)]-[desc]-[bar(6)]-15-|",
+                                 "V:[region]-2-[name]-2-[cause]"]
         var constraints: Constraints =
             NSLayoutConstraint.constraints(withFormats: formats, views: views)
-        
+
         constraints += [NSLayoutConstraint.init(item: percentageLabel,
                                                 attribute: .centerY,
                                                 relatedBy: .equal,
@@ -209,12 +203,14 @@ internal class BK_INSNonprofitButton: UIButton {
         isSelected = true
         layer.borderWidth = 3
         layer.borderColor = UIColor.instacartDescriptionGrey.cgColor
+        backgroundColor = .instacartDisableGrey
     }
     
     func deslect() {
         isSelected = false
         layer.borderWidth = 1
         layer.borderColor = UIColor.instacartBorderGrey.cgColor
+        backgroundColor = .white
     }
 }
 

@@ -44,7 +44,13 @@ class NonprofitAPI {
             country = "US"
         }
         
-        Network.shared.get(urlPath: "chains/nonprofits/?chain=\(chainID)&postal_code=\(storeID)&country_code=\(country)&partner_user_id=\(userID)&show_community_impact=true&lan=\(language)",
+        let urlzip = storeID.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+
+        guard let urlzip = urlzip else {
+            return
+        }
+        
+        Network.shared.get(urlPath: "chains/nonprofits/?chain=\(chainID)&postal_code=\(urlzip)&country_code=\(country)&partner_user_id=\(userID)&show_community_impact=true&lan=\(language)",
                            successJSONHandler: successHandler,
                            errorHandler: errorHandler)
     }
@@ -61,6 +67,7 @@ class NonprofitAPI {
             model.cta = donationInfo["choose_cta"] as? String ?? "Choose nonprofit"
             model.complianceCTA = donationInfo["compliance_cta"] as? String
             model.complianceDescription = donationInfo["compliance_description_mobile"] as? String
+            model.instacartDisclosure = donationInfo["instacart_disclosure"] as? String
         }
     
         if let nonprofits = json["nonprofits"] as? [JSON] {

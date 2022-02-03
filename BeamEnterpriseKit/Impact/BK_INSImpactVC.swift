@@ -7,13 +7,13 @@
 
 import UIKit
 
-public protocol BK_INSImpactVCDelegate: class {
+public protocol BK_INSImpactVCDelegate: AnyObject {
     func didDismiss()
     func didRequestToSelectNonprofit()
     func didRequestToViewNationalImpact()
 }
 
-class BK_INSImpactVC: UIViewController {
+public class BK_INSImpactVC: UIViewController {
     weak var flow: BKImpactFlow?
     weak var context: BKImpactContext?
     weak var delegate: BK_INSImpactVCDelegate?
@@ -36,7 +36,7 @@ class BK_INSImpactVC: UIViewController {
         label.minimumScaleFactor = 1
         label.lineBreakMode = .byWordWrapping
         label.textColor = .instacartTitleGrey
-        label.text = "Help us fight food insecurity"
+        label.text = "Turn your groceries into good"
         label.font = .beamBold(size: 31)
         return label
     }()
@@ -116,8 +116,26 @@ class BK_INSImpactVC: UIViewController {
     let tile1: BK_INSCommunityTile = .init(frame: .zero)
     let tile2: BK_INSCommunityTile = .init(frame: .zero)
     let tile3: BK_INSCommunityTile = .init(frame: .zero)
-    
+    let tile4: BK_INSCommunityTile = .init(frame: .zero)
+    var loadManually: Bool = false
+
     let tableView = UITableView(frame: .zero, style: .plain)
+    
+    let disclosureLabel: UILabel = {
+        let label = UILabel(frame: .zero)
+        label.font = UIFont.beamRegular(size: 12)
+        label.textAlignment = .left
+        label.numberOfLines = 0
+        label.backgroundColor = .clear
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.8
+        label.textColor = .instacartTitleGrey
+        return label
+    }()
+
+    var tileHeightConstraints: [NSLayoutConstraint] = [NSLayoutConstraint]()
+    var tileContentView: UIView = .init(with: .white)
+    var isSetup = false
     
     init(context: BKImpactContext,
          flow: BKImpactFlow,
@@ -126,25 +144,29 @@ class BK_INSImpactVC: UIViewController {
         self.flow = flow
         self.delegate = delegate
         super.init(nibName: nil, bundle: nil)
+        listen()
     }
-
+    
+    public init(flow: BKImpactFlow,
+         delegate: BK_INSImpactVCDelegate?) {
+        self.context = BeamKitContext.shared.impactContext
+        self.flow = flow
+        self.delegate = delegate
+        super.init(nibName: nil, bundle: nil)
+        loadManually = true
+    }
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func loadView() {
+    public override func loadView() {
         view = scrollView
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         setup()
-        listen()
-    }
-    
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     func setup() {
@@ -161,11 +183,14 @@ class BK_INSImpactVC: UIViewController {
         contentView.addSubview(cumulative.usingConstraints())
         contentView.addSubview(separatorThird.usingConstraints())
         contentView.addSubview(communityImpactTitleLabel.usingConstraints())
-        contentView.addSubview(tile.usingConstraints())
-        contentView.addSubview(tile1.usingConstraints())
-        contentView.addSubview(tile2.usingConstraints())
-        contentView.addSubview(tile3.usingConstraints())
-        
+        contentView.addSubview(tileContentView.usingConstraints())
+        tileContentView.addSubview(tile.usingConstraints())
+        tileContentView.addSubview(tile1.usingConstraints())
+        tileContentView.addSubview(tile2.usingConstraints())
+        tileContentView.addSubview(tile3.usingConstraints())
+        tileContentView.addSubview(tile4.usingConstraints())
+        contentView.addSubview(disclosureLabel.usingConstraints())
+
         addChild(tutorial)
         contentView.addSubview(tutorial.view.usingConstraints())
         tutorial.didMove(toParent: self)
@@ -173,6 +198,10 @@ class BK_INSImpactVC: UIViewController {
         personal.delegate = self
         learnMoreLabel.addTarget(self, action: #selector(showComplianceView), for: .touchUpInside)
         setupConstraints()
+        isSetup = true
+        if loadManually {
+            impactDidLoad()
+        }
     }
     
     func setupConstraints() {
@@ -185,16 +214,14 @@ class BK_INSImpactVC: UIViewController {
                             "powered": poweredByLabel,
                             "cum": cumulative,
                             "commTitle": communityImpactTitleLabel,
-                            "tile": tile,
-                            "tile1": tile1,
-                            "tile2": tile2,
-                            "tile3": tile3,
+                            "tile": tileContentView,
+                            "disclosure": disclosureLabel,
                             "sep1": separatorfirst,
                             "sep2": separatorSecond,
                             "sep3": separatorThird]
         
         let isBig = UIDevice.current.hasNotch || UIDevice.current.isPlus
-        let tutorialHeight = isBig ? 405 : 335
+        let tutorialHeight = isBig ? 430 : 373
         let titleMargin = isBig ? 20 : 30
         let subMargin = isBig ? 32 : 20
         let metrics: [String: Int] = ["tutorial": tutorialHeight,
@@ -203,22 +230,19 @@ class BK_INSImpactVC: UIViewController {
         
         let formats: [String] = ["H:|[content]|",
                                  "V:|[content]|",
-                                 "V:|[personal(130)]-[sep1(1)]-10-[title]-10-[sub]-15-[tutorial(tutorial)]-[sep2(1)]-[learn]-12-[cum]-12-[sep3(1)]-12-[commTitle]-12-[tile]-[tile1]-[tile2]-[tile3]-|",
+                                 "V:|[personal]-[sep1(1)]-10-[title]-10-[sub]-32-[tutorial(tutorial)]-[sep2(1)]-[learn]-12-[cum]-12-[sep3(1)]-12-[commTitle]-12-[tile]-16-[disclosure]-|",
                                  "V:[sep2]-[powered]",
                                  "H:|[personal]|",
                                  "H:|-16-[sep1]-16-|",
-                                 "H:|-16-[tutorial]-16-|",
+                                 "H:|[tutorial]|",
                                  "H:|-16-[learn(100)]-[powered]-16-|",
                                  "H:|-subM-[sub]-subM-|",
                                  "H:|-16-[sep2]-16-|",
                                  "H:|-titleM-[title]-titleM-|",
                                  "H:|-16-[commTitle]-16-|",
+                                 "H:|-16-[disclosure]-16-|",
                                  "H:|-40-[sep3]-40-|",
                                  "H:|-16-[tile]-16-|",
-                                 "H:|-16-[tile1]-16-|",
-                                 "H:|-16-[tile2]-16-|",
-                                 "H:|-16-[tile3]-16-|",
-
                                  "H:|[cum]|",
 
         ]
@@ -294,6 +318,10 @@ class BK_INSImpactVC: UIViewController {
 extension BK_INSImpactVC {
     @objc
     func impactDidLoad() {
+        if !isSetup {
+            loadManually = true
+            return
+        }
         DispatchQueue.main.async {
             guard let context = self.context,
                 let impact = context.instacartImpact else { return }
@@ -308,25 +336,28 @@ extension BK_INSImpactVC {
             if let sub = impact.copy.subtitle {
                 self.subLabel.text = sub
                 let style = NSMutableParagraphStyle()
-                style.lineHeightMultiple = 1.25
+                style.lineHeightMultiple = 1.1
                 style.alignment = .center
-                let attributedString = NSAttributedString(string: sub, attributes: [NSAttributedString.Key.paragraphStyle: style])
-                self.subLabel.attributedText = attributedString
+                if let attrString = sub.bkhtmlAttributedString(with: 15)?.mutableCopy() as? NSMutableAttributedString {
+                    let nsstring = NSString(string: attrString.string)
+                    let range = NSMakeRange(0, nsstring.length)
+                    attrString.addAttribute(.paragraphStyle, value: style, range: range)
+                    attrString.addAttribute(.foregroundColor, value: UIColor.instacartDescriptionGrey.cgColor, range: range)
+                    self.subLabel.attributedText = attrString
+                }
             }
             
             if let title = impact.copy.title {
                 self.titleLabel.text = title
-                let style = NSMutableParagraphStyle()
-                style.lineHeightMultiple = 1.1
-                style.alignment = .center
-                let attributedString = NSAttributedString(string: title, attributes: [NSAttributedString.Key.paragraphStyle: style])
-                self.titleLabel.attributedText = attributedString
             }
+            
+            self.disclosureLabel.text = impact.copy.instacartDisclosure ?? "Offer applies to all orders placed between 11/30/21 12:00 AM PST and 12/8/21 12:00 AM PST. The cost of a meal varies by nonprofit. The nonprofit you choose will receive at least $1 for every 10 meals donated. You must choose a nonprofit before placing your order. Your chosen nonprofit will be your default for all orders during offer period. Does not apply to orders that are canceled or fully refunded."
         }
     }
     
     func configureTiles(with impact: BK_INSImpact) {
-        let tiles = [self.tile, self.tile1, self.tile2, self.tile3]
+        let tiles = [self.tile, self.tile1, self.tile2, self.tile3, self.tile4]
+        let nonprofitNumber = impact.nonprofits.count
         for (i, nonprofit) in impact.nonprofits.enumerated() {
             if i < tiles.count {
                 let tile = tiles[i]
@@ -335,20 +366,46 @@ extension BK_INSImpactVC {
                 tile.ctaButton.addTarget(self, action: #selector(self.requestToShowSelection), for: .touchUpInside)
             }
         }
-        if impact.nonprofits.count < tiles.count {
-            var i = impact.nonprofits.count
+        if nonprofitNumber < tiles.count {
+            var i = nonprofitNumber
             while i < tiles.count {
                 let tile = tiles[i]
                 tile.isHidden = true
                 i += 1
             }
         }
+        NSLayoutConstraint.deactivate(tileHeightConstraints)
+        let tileViews: Views =  ["tile": tile,
+                                 "tile1": tile1,
+                                 "tile2": tile2,
+                                 "tile3": tile3,
+                                 "tile4": tile4]
+        var formats: [String] = ["H:|[tile]|",
+                                 "H:|[tile1]|",
+                                 "H:|[tile2]|",
+                                 "H:|[tile3]|"]
+        if nonprofitNumber == 4 {
+            formats += ["V:|[tile]-[tile1]-[tile2]-[tile3]|"]
+        } else if nonprofitNumber == 3 {
+            formats += ["V:|[tile]-[tile1]-[tile2]|"]
+        } else if nonprofitNumber == 5 {
+            formats += ["V:|[tile]-[tile1]-[tile2]-[tile3]-[tile4]-|"]
+        } else if nonprofitNumber == 2 {
+            formats += ["V:|[tile]-[tile1]|"]
+        }
+        
+        tileHeightConstraints = NSLayoutConstraint.constraints(withFormats: formats,
+                                                               options: [],
+                                                               metrics: [:],
+                                                               views: tileViews)
+        NSLayoutConstraint.activate(tileHeightConstraints)
+        view.setNeedsLayout()
     }
 }
 
 
 extension BK_INSImpactVC: BK_INSPersonalImpactDelegate {
-    func didSelectButton(with favorite: String?) {
+    public func didSelectButton(with favorite: String?) {
         if favorite != nil {
             scrollToResults()
         } else {

@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol BKImpactPageDelegate: class {
+protocol BKImpactPageDelegate: AnyObject {
     func didSwipeToGlobal()
     func didSwipeToImpact()
 }

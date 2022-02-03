@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol BKImpactViewDelegate: class {
+public protocol BKImpactViewDelegate: AnyObject {
     var baseViewController: UIViewController { get }
 }
 

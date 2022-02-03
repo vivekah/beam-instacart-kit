@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol BKChooseNonprofitViewDelegate: class {
+public protocol BKChooseNonprofitViewDelegate: AnyObject {
     func didDismiss()
 }
 

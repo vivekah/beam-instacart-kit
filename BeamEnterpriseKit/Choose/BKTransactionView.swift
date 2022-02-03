@@ -8,7 +8,7 @@
 
 import UIKit
 
-public protocol BKTransactionViewDelegate: class {
+public protocol BKTransactionViewDelegate: AnyObject {
     var baseViewController: UIViewController { get }
     func didToggleMatch(on: Bool, amount: CGFloat)
 }

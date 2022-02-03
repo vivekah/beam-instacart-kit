@@ -8,7 +8,7 @@
 
 import UIKit
 
-protocol BKImpactSlideViewDelegate: class {
+protocol BKImpactSlideViewDelegate: AnyObject {
     func didSelectMyImpact()
     func didSelectGlobal()
 }

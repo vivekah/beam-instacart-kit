@@ -78,7 +78,7 @@ public class BK_INSCumulativeImpactView: UIView {
         if let sub = impact.copy.cummulativeImpactDescription {
             self.subLabel.text = sub
             let style = NSMutableParagraphStyle()
-            style.lineHeightMultiple = 1.25
+            style.lineHeightMultiple = 1.04
             style.alignment = .center
             let attributedString = NSAttributedString(string: sub, attributes: [NSAttributedString.Key.paragraphStyle: style])
             self.subLabel.attributedText = attributedString

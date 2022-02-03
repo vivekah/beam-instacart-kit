@@ -61,7 +61,7 @@ public class BK_INSCommunityTile: UIView {
     
     let causeLabel: UILabel = {
         let label = UILabel(frame: .zero)
-        label.font = UIDevice.current.is5or4Phone ? UIFont.beamRegular(size: 11.0) : UIFont.beamRegular(size: 12.0)
+        label.font = UIDevice.current.is5or4Phone ? UIFont.beamSemiBold(size: 11.0) : UIFont.beamSemiBold(size: 12.0)
         label.textAlignment = .left
         label.numberOfLines = 1
         label.textColor = .instacartBeamOrange
@@ -157,7 +157,7 @@ public class BK_INSCommunityTile: UIView {
         if let goal = nonprofit?.impactDescription {
             infoTextLabelView.text = goal
             let style = NSMutableParagraphStyle()
-            style.lineHeightMultiple = 1.28
+            style.lineHeightMultiple = 1.1
             let attributedString = NSAttributedString(string: goal, attributes: [NSAttributedString.Key.paragraphStyle: style])
             infoTextLabelView.attributedText = attributedString
         }
@@ -190,7 +190,16 @@ public class BK_INSCommunityTile: UIView {
         
         if let cta = nonprofit.impactCTA,
            !cta.isEmpty {
-            ctaButton.setAttributedTitle(cta.bkhtmlAttributedString(), for: .normal)
+            
+            let style = NSMutableParagraphStyle()
+            style.lineHeightMultiple = 1.1
+            
+            if let attrString = cta.bkhtmlAttributedString()?.mutableCopy() as? NSMutableAttributedString {
+                let nsstring = NSString(string: attrString.string)
+                let range = NSMakeRange(0, nsstring.length)
+                attrString.addAttribute(.paragraphStyle, value: style, range: range)
+                ctaButton.setAttributedTitle(attrString, for: .normal)
+            }
         }
 
     }
@@ -206,7 +215,7 @@ public class BK_INSCommunityTile: UIView {
                             "per": percentageLabel,
                             "cta": ctaButton]
         
-        let formats: [String] = ["V:|-16-[image(120)]-[reg]-6-[name]-6-[cause]-6-[goal]-[bar(6)]-[sep(1)]-[cta]-16-|",
+        let formats: [String] = ["V:|-16-[image(152)]-[reg]-2-[name]-2-[cause]-2-[goal]-[bar(6)]-10-[sep(1)]-[cta]-16-|",
                                  "H:|-16-[image]-16-|",
                                  "H:|-16-[reg]-16-|",
                                  "H:|-16-[name]-16-|",

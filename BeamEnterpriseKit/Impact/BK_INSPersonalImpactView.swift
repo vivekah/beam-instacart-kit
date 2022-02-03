@@ -7,7 +7,7 @@
 
 import UIKit
 
-public protocol BK_INSPersonalImpactDelegate: class {
+public protocol BK_INSPersonalImpactDelegate: AnyObject {
     func didSelectButton(with favorite: String?)
 }
 
@@ -20,7 +20,7 @@ public class BK_INSPersonalImpactView: UIView {
         view.contentMode = .scaleAspectFill
         view.clipsToBounds = true
         let bundle = BeamKitContext.shared.bundle
-        let image = UIImage(named: "Girl", in: bundle, compatibleWith: nil)
+        let image = UIImage(named: "Personal_Beam", in: bundle, compatibleWith: nil)
         view.image = image
         return view
     }()
@@ -28,14 +28,14 @@ public class BK_INSPersonalImpactView: UIView {
     private let titleLabel: UILabel = {
         let label = UILabel(frame: .zero)
         label.textAlignment = .left
-        label.numberOfLines = 0
+        label.numberOfLines = 2
         label.backgroundColor = .clear
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 1
         label.lineBreakMode = .byWordWrapping
-        //label.text = "Join us in the fight against food insecurity"
+        label.text = "Support your nonprofit"
         label.textColor = .instacartTitleGrey
-        label.font = .beamBold(size: 18)
+        label.font = .beamSemiBold(size: 15)
         return label
     }()
     
@@ -48,7 +48,7 @@ public class BK_INSPersonalImpactView: UIView {
         label.adjustsFontSizeToFitWidth = true
         label.minimumScaleFactor = 1
         label.lineBreakMode = .byWordWrapping
-       // label.text = "Fund meals this holiday season by simply placing your order."
+        label.text = "Just place an order and they’ll get one meal donated, at no extra cost to you."
         label.textColor = .instacartTitleGrey
         return label
     }()
@@ -79,10 +79,19 @@ public class BK_INSPersonalImpactView: UIView {
     }()
     
     var progressHeight: NSLayoutConstraint? = nil
+    var showCTA: Bool = true
+    var verticalConstraints: [NSLayoutConstraint]? = nil
+    var viewDict: Views? = nil
     
     public override init(frame: CGRect) {
         super.init(frame: frame)
         setup()
+    }
+    
+    public init(showCTA: Bool, delegate: BK_INSPersonalImpactDelegate?) {
+        super.init(frame: .zero)
+        self.delegate = delegate
+        setup(showCTA: showCTA)
     }
     
     var context: BKImpactContext {
@@ -98,7 +107,8 @@ public class BK_INSPersonalImpactView: UIView {
         nonprofitImage.layer.cornerRadius = nonprofitImage.bounds.height / 2
     }
     
-    func setup() {
+    func setup(showCTA: Bool = true) {
+        self.showCTA = showCTA
         backgroundColor = .white
         addSubview(nonprofitImage.usingConstraints())
         addSubview(titleLabel.usingConstraints())
@@ -108,6 +118,9 @@ public class BK_INSPersonalImpactView: UIView {
         addSubview(ctaButton.usingConstraints())
         
         setupConstraints()
+        if !showCTA {
+            ctaButton.isHidden = true
+        }
         ctaButton.addTarget(self, action: #selector(didPressButton), for: .touchUpInside)
     }
     
@@ -116,15 +129,17 @@ public class BK_INSPersonalImpactView: UIView {
         titleLabel.text = impact.copy.personalImpactTitle
         subLabel.text = impact.copy.personalImpactDescription
         ctaButton.setTitle(impact.copy.personalImpactCTA, for: .normal)
+        if let html = impact.copy.personalImpactHTMLCTA {
+            ctaButton.setAttributedTitle(html.bkhtmlAttributedString(), for: .normal)
+            ctaButton.titleLabel?.numberOfLines = 0
+            ctaButton.titleLabel?.lineBreakMode = .byWordWrapping
+        }
         let numerator = CGFloat(impact.copy.personalImpactAmt)
         progressBar.numerator = numerator
         progressBar.denominator = 100
         percentageLabel.text = String(impact.copy.personalImpactAmt) + "%"
         progressBar.setNeedsLayout()
-        
-        progressBar.isHidden = numerator == 0
-        percentageLabel.isHidden = numerator == 0
-        progressHeight?.constant = numerator == 0 ? 0 : 6
+
         
         if let image = impact.personalImpactImage,
            let imageURL = URL(string: image) {
@@ -133,20 +148,16 @@ public class BK_INSPersonalImpactView: UIView {
         
         if let title = impact.copy.personalImpactTitle {
             self.titleLabel.text = title
-            let style = NSMutableParagraphStyle()
-            style.lineHeightMultiple = 1.23
-            let attributedString = NSAttributedString(string: title, attributes: [NSAttributedString.Key.paragraphStyle: style])
-            self.titleLabel.attributedText = attributedString
         }
         
         if let sub = impact.copy.personalImpactDescription {
             self.subLabel.text = sub
             let style = NSMutableParagraphStyle()
-            style.lineHeightMultiple = 1.28
+            style.lineHeightMultiple = 1.1
             let attributedString = NSAttributedString(string: sub, attributes: [NSAttributedString.Key.paragraphStyle: style])
             self.subLabel.attributedText = attributedString
         }
-        setNeedsLayout()
+        reconstrain(with: numerator)
     }
     
     public
@@ -155,9 +166,38 @@ public class BK_INSPersonalImpactView: UIView {
             DispatchQueue.main.async {
                 self.configure(with: impact)
             }
-            
         }
     }
+    
+    func reconstrain(with percent: CGFloat) {
+        guard let views = viewDict else { return }
+        let hideProgress = showCTA
+        progressBar.isHidden = hideProgress
+        percentageLabel.isHidden = hideProgress
+        progressHeight?.constant = hideProgress ? 0 : 6
+        
+        var vertFormats = ["V:|-[image]-4-[sub]-[bar]-[cta]-|",
+                           "H:|-16-[cta]-16-|"]
+        if !showCTA {
+            vertFormats = ["V:|-[image]-4-[sub]-11-[bar]-|"]
+        } else if hideProgress && showCTA {
+            vertFormats = ["V:|-[image]-4-[sub]-4-[cta]-|",
+                        "H:|-16-[cta]-16-|"]
+        } else if hideProgress && !showCTA {
+            vertFormats = ["V:|-[image]-4-[sub]-|"]
+        }
+        
+        NSLayoutConstraint.deactivate(verticalConstraints!)
+
+        verticalConstraints = NSLayoutConstraint.constraints(withFormats: vertFormats,
+                                                             options: [],
+                                                             metrics: nil,
+                                                             views: views)
+            
+        NSLayoutConstraint.activate(verticalConstraints!)
+        setNeedsLayout()
+    }
+    
     
     func setupConstraints() {
         let views: Views = ["image": nonprofitImage,
@@ -166,15 +206,13 @@ public class BK_INSPersonalImpactView: UIView {
                             "bar": progressBar,
                             "per": percentageLabel,
                             "cta": ctaButton]
-    
-        let formats: [String] = ["H:|-16-[image(50)]-16-[title]-16-|",
-                                 "V:|-[image(50)]",
-                                 "V:|-[title]-[sub]-[bar(6)]-[cta]-|",
-                                 "H:|-82-[sub]-16-|",
-                                 "H:|-82-[bar]-[per(30)]-16-|",
-                                 "H:|-82-[cta]-16-|",
+        viewDict = views
+        let formats: [String] = ["H:|-16-[image(52)]-16-[title]",
+                                 "V:|-[image(52)]",
+                                 "V:|-[title]",
+                                 "H:|-16-[sub]-16-|",
+                                 "H:|-16-[bar]-[per(30)]-16-|",
                                  ]
-
         var constraints = NSLayoutConstraint.constraints(withFormats: formats,
                                                          options: [],
                                                          metrics: nil,
@@ -195,21 +233,42 @@ public class BK_INSPersonalImpactView: UIView {
                                                 attribute: .centerY,
                                                 multiplier: 1.0,
                                                 constant: 0),
-                        NSLayoutConstraint.init(item: nonprofitImage,
-                                                attribute: .centerY,
+                        NSLayoutConstraint.init(item: ctaButton,
+                                                attribute: .height,
                                                 relatedBy: .equal,
-                                                toItem: titleLabel,
-                                                attribute: .centerY,
+                                                toItem: ctaButton.titleLabel,
+                                                attribute: .height,
                                                 multiplier: 1.0,
-                                                constant: 0)]
-    
+                                                constant: 0),
+                        NSLayoutConstraint.init(item: titleLabel,
+                                                attribute: .trailing,
+                                                relatedBy: .equal,
+                                                toItem: progressBar,
+                                                attribute: .trailing,
+                                                multiplier: 1.0,
+                                                constant: 0),
+                        
+        ]
+        
+        var vertFormats = ["V:|-[image]-4-[sub]-[bar]-[cta]-|",
+                           "H:|-82-[cta]-16-|"]
+        if !showCTA {
+            vertFormats = ["V:|-[image]-4-[sub]-11-[bar]-|"]
+        }
+        verticalConstraints = NSLayoutConstraint.constraints(withFormats: vertFormats,
+                                                             options: [],
+                                                             metrics: nil,
+                                                             views: views)
+        NSLayoutConstraint.activate(verticalConstraints!)
         NSLayoutConstraint.activate(constraints)
-
     }
     
     @objc
     func didPressButton() {
-        let name = context.instacartCopy?.favoriteName
+        var name = context.instacartCopy?.favoriteName
+        if let id = context.instacartImpact?.favoriteID {
+            name = String(id)
+        }
         delegate?.didSelectButton(with: name)
     }
     
@@ -226,7 +285,7 @@ public class BK_INSPostPurchaseView: UIView {
         view.contentMode = .scaleAspectFit
         view.clipsToBounds = true
         let bundle = BeamKitContext.shared.bundle
-        let image = UIImage(named: "Girl", in: bundle, compatibleWith: nil)
+        let image = UIImage(named: "Personal_Beam", in: bundle, compatibleWith: nil)
         view.image = image
         return view
     }()
